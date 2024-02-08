@@ -1,4 +1,6 @@
 ---
+import Icon from '@/components/icon.astro'
+import type { iconPaths } from './IconPaths'
 
 /** Main menu items */
 const textLinks: { label: string; href: string }[] = [
@@ -6,17 +8,12 @@ const textLinks: { label: string; href: string }[] = [
 	{ label: 'Work', href: '/work/' },
 	{ label: 'About', href: '/about/' },
 ];
-
-/** Icon links to social media — edit these with links to your profiles! */
-const iconLinks: { label: string; href: string }[] = [
-	{ label: 'GitHub', href: 'https://github.com/me' },
-];
 ---
 
 <nav>
 	<div class="menu-header">
 		<a href="/" class="site-title">
-		    Daniel Ives	
+		    <Icon icon="code" size="2rem" />
 		</a>
 		<menu-button>
 			<template>
@@ -50,19 +47,6 @@ const iconLinks: { label: string; href: string }[] = [
 			}
 		</ul>
 	</noscript>
-	<noscript>
-		<div class="menu-footer">
-			<div class="socials">
-				{
-					iconLinks.map(({ href, icon, label }) => (
-						<a href={href} class="social">
-							<span class="sr-only">{label}</span>
-						</a>
-					))
-				}
-			</div>
-		</div>
-	</noscript>
 	<div id="menu-content" hidden>
 		<ul class="nav-items">
 			{
@@ -86,17 +70,6 @@ const iconLinks: { label: string; href: string }[] = [
 				))
 			}
 		</ul>
-		<div class="menu-footer">
-			<div class="socials">
-				{
-					iconLinks.map(({ href, icon, label }) => (
-						<a href={href} class="social">
-							<span class="sr-only">{label}</span>
-						</a>
-					))
-				}
-			</div>
-		</div>
 	</div>
 </nav>
 
