@@ -5,16 +5,19 @@ import {
     CommandInput,
     CommandItem,
     CommandList,
-    CommandSeparator,
+    Command,
 } from "@/components/ui/command"
 import React from "react"
 import { Button } from "./ui/button"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { commandOptions } from "./CommandOptions"
 import * as allIcons from "@tabler/icons-react"
+import { useBreakpoint } from "./hooks/UseBreakpoint"
 
 
 export default function Search() {
     const [open, setOpen] = React.useState(false)
+    const { isAboveMd, md } = useBreakpoint("md")
 
     React.useEffect(() => {
         const down = (e: KeyboardEvent) => {
@@ -50,18 +53,38 @@ export default function Search() {
         )
     }
 
+    const searchButton = () => {
+        return (
+            <Button className="h-12 md:h-8 w-auto md:w-40 lg:w-64 justify-between text-muted-foreground rounded-[0.5rem] bg-background" variant="outline" onClick={() => setOpen(true)}>
+                <span className="inline-flex">Search</span>
+                <kbd className="text-muted-foreground hidden md:inline"><span className="text-xs">⌘</span>K</kbd>
+            </Button>
+        )
+    }
+
     return (
         <>
-            <div className="w-full flex-1 md:w-auto md:flex-none">
-                <Button className="h-12 md:h-8 w-full md:w-40 lg:w-64 justify-between text-muted-foreground rounded-[0.5rem] bg-background" variant="outline" onClick={() => setOpen(true)}>
-                    <span className="inline-flex">Search</span>
-                    <kbd className="text-muted-foreground hidden md:inline"><span className="text-xs">⌘</span>K</kbd>
-                </Button>
-            </div>
-            <CommandDialog open={open} onOpenChange={setOpen}>
-                <CommandInput placeholder="Search" />
-                {commandList()}
-            </CommandDialog>
+            {isAboveMd ? (
+                <>
+                    {searchButton()}
+                    <CommandDialog open={open} onOpenChange={setOpen}>
+                        <CommandInput placeholder="Search" />
+                        {commandList()}
+                    </CommandDialog>
+                </>
+            ) : (
+                <Popover>
+                    <PopoverTrigger asChild>
+                        {searchButton()}
+                    </PopoverTrigger>
+                    <PopoverContent className="w-screen">
+                        <Command className="w-full">
+                            <CommandInput placeholder="Search" />
+                            {commandList()}
+                        </Command></PopoverContent>
+                </Popover>
+            )}
+
         </>
     )
 }
