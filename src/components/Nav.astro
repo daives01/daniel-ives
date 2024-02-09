@@ -11,20 +11,8 @@ const textLinks: { label: string; href: string }[] = [
 ---
 
 <nav>
-	<div class="menu-header">
-		<a href="/" class="site-title">
-		    <Icon icon="code" size="2rem" />
-		</a>
-		<menu-button>
-			<template>
-				<button class="menu-button" aria-expanded="false">
-					<span class="sr-only">Menu</span>
-				</button>
-			</template>
-		</menu-button>
 	</div>
-	<noscript>
-		<ul class="nav-items">
+		<ul class="max-md:hidden flex-col">
 			{
 				textLinks.map(({ label, href }) => (
 					<li>
@@ -46,8 +34,7 @@ const textLinks: { label: string; href: string }[] = [
 				))
 			}
 		</ul>
-	</noscript>
-	<div id="menu-content" hidden>
+	<div id="menu-content" class="md:hidden">
 		<ul class="nav-items">
 			{
 				textLinks.map(({ label, href }) => (
@@ -72,7 +59,7 @@ const textLinks: { label: string; href: string }[] = [
 		</ul>
 	</div>
 </nav>
-
+<!-- 
 <script>
 	class MenuButton extends HTMLElement {
 		constructor() {
@@ -108,9 +95,9 @@ const textLinks: { label: string; href: string }[] = [
 		}
 	}
 	customElements.define('menu-button', MenuButton);
-</script>
+</script> -->
 
-<style>
+<!-- <style>
 	nav {
 		z-index: 9999;
 		position: relative;
@@ -322,4 +309,4 @@ const textLinks: { label: string; href: string }[] = [
 		}
 	}
 </style>
-
+ -->
