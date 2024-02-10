@@ -1,4 +1,4 @@
-import { IconBrandGithub } from "@tabler/icons-react"
+import { toggleTheme, getThemePreference } from '@/components/toggleTheme'
 
 type SearchItem = {
     title: string
