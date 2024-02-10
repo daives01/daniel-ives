@@ -1,4 +1,4 @@
-import { toggleTheme, getThemePreference } from '@/components/toggleTheme'
+import { setTheme, getThemePreference } from '@/components/toggleTheme'
 
 type SearchItem = {
     title: string

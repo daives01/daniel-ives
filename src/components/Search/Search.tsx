@@ -15,11 +15,12 @@ import * as allIcons from "@tabler/icons-react"
 import { IconMenu2 } from "@tabler/icons-react"
 import { useBreakpoint } from "../hooks/UseBreakpoint"
 import useThemeToggle from "../hooks/useThemeToggle"
+import type { Theme } from "../toggleTheme"
 
 
 export default function Search() {
     const [open, setOpen] = React.useState(false)
-    const [theme, toggleTheme, isDarkSystemTheme, usingSystemTheme, useSystemTheme] = useThemeToggle()
+    const [theme, setTheme, isDarkSystemTheme] = useThemeToggle()
     const { isAboveMd, md } = useBreakpoint("md")
 
     React.useEffect(() => {
@@ -32,6 +33,28 @@ export default function Search() {
         document.addEventListener("keydown", down)
         return () => document.removeEventListener("keydown", down)
     }, [])
+
+    const themeOptions = () => {
+        const themeOptions = [
+            { theme: "system" , icon: isDarkSystemTheme ? <allIcons.IconMoonStars /> : <allIcons.IconSun />, label: "System Theme" },
+            { theme: "light", icon: <allIcons.IconSun />, label: "Light Mode" },
+            { theme: "dark", icon: <allIcons.IconMoonStars />, label: "Dark Mode" },
+        ];
+        
+        return themeOptions.map(option => (
+            <CommandItem 
+                disabled={theme === option.theme} 
+                onSelect={() => { setTheme(option.theme as Theme) }} 
+                key={option.theme} 
+                value={`${option.label} mode toggle mode light mode dark mode theme`}
+            >
+                <div className="pr-2">
+                    {option.icon}
+                </div>
+                {theme === option.theme ? "Using" : "Use"} {option.label}
+            </CommandItem>
+        ));
+    }
 
     const commandList = () => {
         return (
@@ -53,23 +76,7 @@ export default function Search() {
                         </CommandGroup>
                     ))}
                 <CommandGroup heading="Theme">
-                    <CommandItem onSelect={() => {
-                        toggleTheme()
-                    }} key={'mode'} value={'light mode' + 'dark mode' + 'toggle' + 'mode'}>
-                        <div className="pr-2">
-                            {theme == "light" ? <allIcons.IconMoon /> : <allIcons.IconSun />}
-                        </div>
-                        Toggle {theme == "light" ? "Dark" : "Light"} Mode
-                    </CommandItem>
-                    <CommandItem disabled={usingSystemTheme} onSelect={() => {
-                        useSystemTheme()
-                    }
-                    } key={'system'} value={'system mode' + 'toggle' + 'mode' + 'light mode' + 'dark mode' + 'theme'}>
-                        <div className="pr-2">
-                            {isDarkSystemTheme ? <allIcons.IconMoon /> : <allIcons.IconSun />}
-                        </div>
-                        {usingSystemTheme ? "Using" : "Use"} System Theme
-                    </CommandItem>
+                    {themeOptions()}
                 </CommandGroup>
             </CommandList>
         )

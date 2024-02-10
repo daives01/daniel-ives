@@ -1,45 +1,30 @@
-import { useEffect, useState } from 'react';
-import { getThemePreference, toggleTheme as toggle } from '../toggleTheme';
+import { useEffect, useState, type Dispatch, type SetStateAction } from 'react';
+import { getThemePreference, setTheme as toggle, type Theme } from '../toggleTheme';
 import { useThemeDetector } from './UseThemeDetector';
 
-type Theme = 'light' | 'dark';
 
-const useThemeToggle = (): [Theme, () => void, boolean, boolean, () => void] => {
-    const [theme, setTheme] = useState<Theme>('light' as Theme);
+const useThemeToggle = (): [Theme, Dispatch<SetStateAction<Theme>>, boolean]  => {
+    const [theme, setTheme] = useState<Theme>('system' as Theme);
     
     const isDarkSystemTheme = useThemeDetector();
-    const [usingSystemTheme, setUsingSystemTheme] = useState(true);
 
-    // checks if the system theme has changed and updates the theme accordingly
+    // use effect in case system theme changes
     useEffect(() => {
-        if (usingSystemTheme) {
-            if (isDarkSystemTheme) {
-                setTheme('dark');
-            } else {
-                setTheme('light');
-            }
+        if (theme === 'system') {
+            toggle(theme);
         }
-    }, [isDarkSystemTheme, usingSystemTheme]);
+    }, [isDarkSystemTheme]);
 
     // checks if the theme has changed and runs the toggle function
     useEffect(() => {
         const currentPref = getThemePreference();
         if (currentPref !== theme) {
-            toggle()
+            toggle(theme);
         }
     }, [theme])
 
 
-    const toggleTheme = () => {
-        setUsingSystemTheme(false);
-        setTheme(theme === 'light' ? 'dark' : 'light');
-    };
-
-    const useSystemTheme = () => {
-        setUsingSystemTheme(true);
-    }
-
-    return [theme, toggleTheme, isDarkSystemTheme, usingSystemTheme, useSystemTheme];
+    return [theme, setTheme, isDarkSystemTheme];
 };
 
 export default useThemeToggle;
