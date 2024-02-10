@@ -4,7 +4,6 @@ export type Theme = 'light' | 'dark' | 'system';
 export function setTheme(theme: Theme) {
     if (theme === "system") {
         const isDarkSystemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        console.log("theme is system", isDarkSystemTheme)
 
         if (isDarkSystemTheme) {
             document.documentElement.classList.add("dark");
@@ -12,7 +11,6 @@ export function setTheme(theme: Theme) {
             document.documentElement.classList.remove("dark");
         }
     } else {
-        console.log("theme is not system", theme)
         if (theme === "dark") {
             document.documentElement.classList.add("dark");
         } else {
