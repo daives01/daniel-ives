@@ -8,11 +8,12 @@ import {
     Command,
 } from "@/components/ui/command"
 import React from "react"
-import { Button } from "./ui/button"
+import { Button } from "../ui/button"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { commandOptions } from "./CommandOptions"
 import * as allIcons from "@tabler/icons-react"
-import { useBreakpoint } from "./hooks/UseBreakpoint"
+import { IconMenu2 } from "@tabler/icons-react"
+import { useBreakpoint } from "../hooks/UseBreakpoint"
 
 
 export default function Search() {
@@ -53,20 +54,16 @@ export default function Search() {
         )
     }
 
-    const searchButton = () => {
-        return (
-            <Button className="h-12 md:h-8 w-auto md:w-40 lg:w-64 justify-between text-muted-foreground rounded-[0.5rem] bg-background" variant="outline" onClick={() => setOpen(true)}>
-                <span className="inline-flex">Search</span>
-                <kbd className="text-muted-foreground hidden md:inline"><span className="text-xs">⌘</span>K</kbd>
-            </Button>
-        )
-    }
-
     return (
         <>
             {isAboveMd ? (
                 <>
-                    {searchButton()}
+            <Button className="h-12 md:h-8 w-auto md:w-40 lg:w-64 justify-between relative rounded-[0.5rem] bg-background inline-flex" variant="outline" onClick={() => setOpen(true)}>
+                <span className="inline-flex text-muted-foreground">Search</span>
+                <kbd className="pointer-events-none hidden h-5 absolute top-[0.3rem] right-[0.3rem] select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
+                    <span className="text-xs">⌘</span>K
+                </kbd>
+            </Button>
                     <CommandDialog open={open} onOpenChange={setOpen}>
                         <CommandInput placeholder="Search" />
                         {commandList()}
@@ -75,7 +72,7 @@ export default function Search() {
             ) : (
                 <Popover>
                     <PopoverTrigger asChild>
-                        {searchButton()}
+                    <IconMenu2/>
                     </PopoverTrigger>
                     <PopoverContent className="w-screen">
                         <Command className="w-full">
