@@ -7,7 +7,7 @@ import {
     CommandList,
     Command,
 } from "@/components/ui/command"
-import React, { useEffect } from "react"
+import React from "react"
 import { Button } from "../ui/button"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { commandOptions } from "./CommandOptions"
@@ -102,7 +102,7 @@ export default function Search() {
             ) : (
                 <Popover>
                     <PopoverTrigger asChild>
-                        <IconMenu2 />
+                        <IconMenu2 className="text-muted-foreground" />
                     </PopoverTrigger>
                     <PopoverContent className="w-screen">
                         <Command className="w-full">

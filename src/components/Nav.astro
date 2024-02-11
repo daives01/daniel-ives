@@ -1,8 +1,13 @@
 ---
 import Search from "./Search/Search";
+import { Icon } from "astro-icon/components";
 ---
 
-<div class="flex h-16 justify-end md:justify-between align-middle p-4">
-  <p class="hidden md:inline-flex"><a href="/"></a></p>
+<div class="flex h-16 justify-between align-middle p-4">
+  <p class="hidden md:inline-flex">
+    <a href="/">
+      <Icon name="home" class="animate-fade-in text-2xl text-muted-foreground"/>
+    </a>
+  </p>
   <Search client:only="react" />
 </div>
