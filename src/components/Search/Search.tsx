@@ -82,6 +82,8 @@ export default function Search() {
         )
     }
 
+    const metaKey = navigator.platform.includes("Mac") ? "⌘" : "ctrl"
+
     return (
         <>
             {isAboveMd ? (
@@ -89,7 +91,7 @@ export default function Search() {
                     <Button className="h-12 md:h-8 w-auto md:w-40 lg:w-64 justify-between relative rounded-[0.5rem] bg-background inline-flex" variant="outline" onClick={() => setOpen(true)}>
                         <span className="inline-flex text-muted-foreground">Search</span>
                         <kbd className="pointer-events-none hidden h-5 absolute top-[0.3rem] right-[0.3rem] select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
-                            <span className="text-xs">⌘</span>K
+                            <span className="text-xs">{metaKey}</span>K
                         </kbd>
                     </Button>
                     <CommandDialog open={open} onOpenChange={setOpen}>
