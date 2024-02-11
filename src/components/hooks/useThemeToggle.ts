@@ -17,10 +17,7 @@ const useThemeToggle = (): [Theme, Dispatch<SetStateAction<Theme>>, boolean]  =>
 
     // checks if the theme has changed and runs the toggle function
     useEffect(() => {
-        const currentPref = getThemePreference();
-        if (currentPref !== theme) {
-            toggle(theme);
-        }
+        toggle(theme);
     }, [theme])
 
 
