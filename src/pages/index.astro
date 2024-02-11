@@ -1,42 +1,8 @@
 ---
-// import "@/styles/globals.css";
-import { Image } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import daniel from "@/assets/daniel.jpg";
+import Hero from "@/components/Hero.astro"
 ---
 
 <BaseLayout>
-  <div class="flex flex-col h-full items-center justify-center px-4 md:px-0 animate-fade-in">
-    <h1 class="text-6xl font-bold pb-4">Hi, I'm Daniel Ives</h1>
-    <div class="flex flex-col justify-center h-4/3 align-middle md:justify-between md:flex-row">
-      <div class="pb-4 text-center">
-        <p class="text-2xl text-muted-foreground">software engineer</p>
-        <p class="text-xl text-muted-foreground opacity-80">musician</p>
-        <p class="text-lg text-muted-foreground opacity-70">rock climber</p>
-        <p class="text-lg text-muted-foreground opacity-60">slack emoji aficionado</p>
-        <p class="text-lg text-muted-foreground opacity-50">neovim poser</p>
-        <p class="text-lg text-muted-foreground opacity-40">excalidraw enthusiast</p>
-        <p class="text-lg text-muted-foreground opacity-30">future husband (in training)</p>
-        <p class="text-lg text-muted-foreground opacity-20">smiling while crouching</p>
-        <p class="text-lg text-muted-foreground opacity-10">typeracer 100+ WPM club member</p>
-      </div>
-      <div class="w-auto h-2/3 md:h-72 rounded-full overflow-hidden">
-        <Image src={daniel} alt="Daniel Ives" class="object-cover w-full h-full m-auto" />
-      </div>
-    </div>
-  </div>
+    <Hero />
 </BaseLayout>
-
-<style>
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  .animate-fade-in {
-    animation: fadeIn 1s ease-out;
-  }
-</style>
