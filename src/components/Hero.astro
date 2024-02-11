@@ -2,34 +2,54 @@
 import daniel from "@/assets/daniel.jpg";
 ---
 
-<div class="h-full box-border grid grid-cols-1 gap-0 md:gap-2">
+<div class="h-full box-border grid grid-cols-1 p-4 gap-0 md:gap-2">
   <div class="box-border h-full flex flex-col justify-start">
-    <h1 class="text-6xl font-bold text-center">Hi, I'm Daniel Ives.</h1>
-  </div>
-  <div class="pb-4 box-border h-full grid md:grid-cols-2">
-    <div class="flex flex-col justify-center text-center h-full">
-      <p class="text-2xl text-muted-foreground">software engineer</p>
-      <p class="text-xl text-muted-foreground opacity-80">musician</p>
-      <p class="text-lg text-muted-foreground opacity-70">rock climber</p>
-      <p class="text-lg text-muted-foreground opacity-60">slack emoji aficionado</p>
-      <p class="text-lg text-muted-foreground opacity-50">neovim poser</p>
-      <p class="text-lg text-muted-foreground opacity-40">excalidraw enthusiast</p>
-      <p class="text-lg text-muted-foreground opacity-30">future husband (in training)</p>
-      <p class="text-lg text-muted-foreground opacity-20">smiling while crouching</p>
-      <p class="text-lg text-muted-foreground opacity-10">typeracer 100+ WPM club member</p>
-    </div>
-    <div class="w-full flex justify-center items-center">
-      <div class="mt-4 h-auto w-2/3 overflow-hidden rounded-full">
-        <img src={daniel.src} alt="Daniel Ives" class="object-top" />
+    <h2 class="text-4xl font-bold text-center">Hi, I'm</h2>
+    <h1 class="text-6xl font-bold text-center text-transparent">
+      <span
+        class="bg-gradient-to-br from-accent-foreground to-foreground bg-clip-text"
+        >Daniel Ives.</span
+      >
+    </h1>
+    <div class="pb-4 box-border h-full grid md:grid-cols-2">
+      <div class="flex flex-col justify-center text-center h-full">
+        <p class="text-2xl text-muted-foreground">software engineer</p>
+        <p class="text-xl text-muted-foreground opacity-80">musician</p>
+        <p class="text-lg text-muted-foreground opacity-70">rock climber</p>
+        <p class="text-lg text-muted-foreground opacity-60">
+          slack emoji aficionado
+        </p>
+        <p class="text-lg text-muted-foreground opacity-50">neovim poser</p>
+        <p class="text-lg text-muted-foreground opacity-40">
+          excalidraw enthusiast
+        </p>
+        <p class="text-lg text-muted-foreground opacity-30">
+          future husband (in training)
+        </p>
+        <p class="text-lg text-muted-foreground opacity-20">
+          smiling while crouching
+        </p>
+        <p class="text-lg text-muted-foreground opacity-10">
+          typeracer 100+ WPM club member
+        </p>
+      </div>
+      <div class="w-full flex justify-center items-center">
+        <div class="mt-4 h-auto w-2/3 overflow-hidden rounded-full">
+          <img src={daniel.src} alt="Daniel Ives" class="object-top" />
+        </div>
       </div>
     </div>
-  </div>
-  <div class="box-border h-full p-12 grid md:grid-cols-2 gap-4">
-    <div>
-        <h2 class="text-3xl font-bold text-center"><a href="/about">About Me.</a></h2>
-    </div>
-    <div>
-        <h2 class="text-3xl font-bold text-center"><a href="/work">My Work.</a></h2>
+    <div class="box-border h-full p-12 grid md:grid-cols-2 gap-4">
+      <div>
+        <h2 class="text-3xl font-bold text-center text-accent-foreground">
+          <a href="/about">About Me.</a>
+        </h2>
+      </div>
+      <div>
+        <h2 class="text-3xl font-bold text-center text-accent-foreground">
+          <a href="/work">My Work.</a>
+        </h2>
+      </div>
     </div>
   </div>
 </div>
