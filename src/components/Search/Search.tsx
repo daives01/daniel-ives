@@ -85,7 +85,7 @@ export default function Search() {
     const metaKey = navigator.platform.includes("Mac") ? "⌘" : "ctrl"
 
     return (
-        <>
+        <div className="animate-fade-in">
             {isAboveMd ? (
                 <>
                     <Button className="h-12 md:h-8 w-auto md:w-40 lg:w-64 justify-between relative rounded-[0.5rem] bg-background inline-flex" variant="outline" onClick={() => setOpen(true)}>
@@ -112,6 +112,6 @@ export default function Search() {
                 </Popover>
             )}
 
-        </>
+        </div>
     )
 }
