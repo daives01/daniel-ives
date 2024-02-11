@@ -4,7 +4,7 @@ import { useThemeDetector } from './UseThemeDetector';
 
 
 const useThemeToggle = (): [Theme, Dispatch<SetStateAction<Theme>>, boolean]  => {
-    const [theme, setTheme] = useState<Theme>('system' as Theme);
+    const [theme, setTheme] = useState<Theme>(getThemePreference());
     
     const isDarkSystemTheme = useThemeDetector();
 
