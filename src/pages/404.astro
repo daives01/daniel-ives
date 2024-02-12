@@ -1,0 +1,25 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import danielAvs from "@/assets/daniel-avs.jpg";
+import danielNuggets from "@/assets/daniel-nuggets.jpg";
+---
+
+<BaseLayout>
+  <div class="flex items-center justify-center h-screen">
+    <div class="flex flex-col md:flex-row items-center justify-center">
+      <div class="w-1/4 aspect-auto overflow-hidden rounded-2xl mx-8">
+        <img src={danielAvs.src} alt="Daniel Avs" class="object-cover" />
+      </div>
+      <div class="flex flex-col justify-center text-center">
+        <h1 class="text-4xl font-bold mb-4">Ruh Roh!</h1>
+        <h2 class="text-2xl font-bold mb-4">This page doesn't exist.</h2>
+        <a href="/">
+          <h2 class="text-2xl font-bold mb-4 text-accent-foreground">Go back home</h2>
+        </a>
+      </div>
+      <div class="w-1/4 aspect-auto overflow-hidden rounded-2xl mx-8">
+        <img src={danielNuggets.src} alt="Daniel Nuggets" class="object-cover" />
+      </div>
+    </div>
+  </div>
+</BaseLayout>
