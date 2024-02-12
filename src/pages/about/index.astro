@@ -1,11 +1,26 @@
 ---
-import BaseLayout from "@/layouts/BaseLayout.astro"
-
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Bio from "@/components/Bio.astro";
 ---
 
-
 <BaseLayout>
-<div>
-    coming soon!
-</div>
+  <div class="grid gap-4 h-full w-full p-4 animate-fade-in">
+    <Bio />
+    <div class="work-history-section">
+      work
+      <!-- Work history content goes here -->
+    </div>
+    <div class="image-section">
+      image
+      <!-- Image for work history goes here -->
+    </div>
+    <div class="skills-section">
+      skills
+      <!-- Skills content goes here -->
+    </div>
+    <div class="image-section">
+      image
+      <!-- Image for skills goes here -->
+    </div>
+  </div>
 </BaseLayout>
