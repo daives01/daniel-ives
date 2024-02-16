@@ -4,7 +4,6 @@
 import "@/styles/globals.css";
 import MainHead from "../components/MainHead.astro";
 import Nav from "../components/Nav.astro";
-import Footer from "@/components/Footer.astro";
 
 interface Props {
 	title?: string | undefined;
@@ -32,11 +31,10 @@ const { title, description } = Astro.props;
 	<head>
 		<MainHead title={title} description={description} />
 	</head>
-	<body class="flex flex-col w-full h-screen overflow-x-hidden">
+	<body class="flex flex-col w-full h-lvh overflow-x-hidden">
 		<Nav transition:persist/>
-		<div class="h-full flex box-border flex-col justify-start">
+		<div class="h-full flex flex-col justify-start">
 			<slot />
 		</div>
-		<Footer />
 	</body>
 </html>
