@@ -5,10 +5,10 @@ import daniel2 from "@/assets/daniel-2.jpg";
 <div class="grid md:grid-cols-2">
   <div class="flex justify-center align-middle items-center">
     <div class="w-3/4 aspect-square overflow-hidden rounded-2xl">
-      <img src={daniel2.src} alt="Daniel" class="object-cover" />
+      <img transition:name="image" src={daniel2.src} alt="Daniel" class="object-cover" />
     </div>
   </div>
-  <div class="flex flex-col justify-center align-middle text-center p-8 md:px-16">
+  <div transition:name="text-body" class="flex flex-col justify-center align-middle text-center p-8 md:px-16">
     <h1 class="text-accent-foreground text-4xl font-bold pb-4">Hi, I'm Daniel</h1>
     <p class="text-lg indent-4">
       Starting as an intern at Backbone PLM, I dove deep into the web development world, complementing my more traditional CS education. Since graduating from CSU in
