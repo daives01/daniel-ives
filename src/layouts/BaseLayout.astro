@@ -12,29 +12,29 @@ interface Props {
 
 const { title, description } = Astro.props;
 ---
-<script is:inline>
-	// initial theme set
-	const theme = localStorage.getItem("theme");
-	if (theme === "dark") {
-		document.documentElement.classList.add("dark");
-	} else if (theme === "light") {
-		document.documentElement.classList.remove("dark");
-	} else {
-		if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-			document.documentElement.classList.add("dark");
-		}
-		localStorage.setItem("theme", "system")
-	}
-</script>
 
 <html lang="en">
 	<head>
 		<MainHead title={title} description={description} />
 	</head>
 	<body class="flex flex-col w-full h-lvh overflow-x-hidden">
-		<Nav transition:persist/>
+		<Nav transition:persist />
 		<div class="h-full flex flex-col justify-start">
 			<slot />
 		</div>
-	</body>
+	</body><style>
+		@keyframes fadeIn {
+			0% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+
+		.not-chrome > body {
+			/* fade in */
+			animation: fadeIn 1.5s ease-in-out;
+		}
+	</style>
 </html>

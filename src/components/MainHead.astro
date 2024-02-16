@@ -5,10 +5,8 @@ interface Props {
 	description?: string | undefined;
 }
 
-const {
-	title = 'Daniel Ives',
-	description = 'Software Engineer',
-} = Astro.props;
+const { title = "Daniel Ives", description = "Software Engineer" } =
+	Astro.props;
 ---
 
 <meta charset="UTF-8" />
@@ -16,5 +14,34 @@ const {
 <meta name="description" property="og:description" content={description} />
 <meta name="viewport" content="width=device-width" />
 <meta name="generator" content={Astro.generator} />
-<ViewTransitions />
 <title>{title}</title>
+<script is:inline>
+	function init(document) {
+		console.log("Hello from the client!");
+		const theme = localStorage.getItem("theme");
+		if (theme === "dark") {
+			document.documentElement.classList.add("dark");
+		} else if (theme === "light") {
+			document.documentElement.classList.remove("dark");
+		} else {
+			if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+				document.documentElement.classList.add("dark");
+			}
+			localStorage.setItem("theme", "system");
+		}
+		// fade in for non-chrome browsers
+		const isChrome =
+			/Chrome/.test(navigator.userAgent) &&
+			/Google Inc/.test(navigator.vendor);
+		if (!isChrome) {
+			document.querySelector("html").classList.add("not-chrome");
+		}
+	}
+
+	init(document);
+
+	document.addEventListener("astro:before-swap", ev => {
+		init(ev.newDocument);
+	} );
+</script>
+<ViewTransitions />
