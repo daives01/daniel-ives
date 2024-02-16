@@ -1,4 +1,5 @@
 import { setTheme, getThemePreference } from '@/components/toggleTheme'
+import { navigate } from 'astro:transitions/client'
 
 type SearchItem = {
     title: string
@@ -15,13 +16,6 @@ type SearchSection = {
 
 export type SearchList = {
     sections: SearchSection[]
-}
-
-const navigate = (href: string) => {
-    // create and click a link
-    const a = document.createElement("a")
-    a.href = href
-    a.click()
 }
 
 
