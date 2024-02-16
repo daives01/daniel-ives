@@ -1,6 +1,13 @@
 ---
 import daniel from "@/assets/daniel.jpg";
-import { Image } from "astro:assets";
+import daniel2 from "@/assets/daniel-2.jpg";
+import { Image, getImage } from "astro:assets";
+
+const optimizedImage = await getImage({
+  src: daniel2,
+  format: "webp",
+  quality: 75
+})
 ---
 
 <div class="grid grid-cols-1 md:grid-cols-3 justify-center align-middle items-center gap-4 h-full">

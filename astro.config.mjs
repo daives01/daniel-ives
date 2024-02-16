@@ -6,6 +6,9 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
+  prefetch: {
+    prefetchAll: true
+  },
   integrations: [react(), tailwind({
     applyBaseStyles: false
   }), icon()]
