@@ -1,5 +1,6 @@
 ---
 index: 4
+slug: cs-370
 title: Hand-Gesture Media Controller
 date: Spring 2022
 description: A computer vision raspberry pi project for CS370 - Operating Systems

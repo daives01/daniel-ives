@@ -1,5 +1,6 @@
 ---
 index: 4
+slug: coffee-calculator
 title: Coffee Calculator
 date: Jan 2022
 description: A simple frontend that details various coffee brewing methods, built with Next.js (v12) and chakra-ui

@@ -1,5 +1,6 @@
 ---
 index: 3
+slug: cs-462
 title: Alone on the Moon 
 date: Fall 2022
 description: A Unity Project for CS462 - Engaging in Virtual Worlds

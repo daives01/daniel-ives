@@ -1,8 +1,9 @@
 ---
 index: 1
+slug: nikhil-gpt
 title: Nikhil GPT
 date: Spring 2023
-description: A Unity Project for CS462 - Engaging in Virtual Worlds
+description: "A custom trained and built language model based on my professor's lectures"
 quickLinks: 
   - title: GitHub
     link: https://github.com/daives01/nikhil-GPT

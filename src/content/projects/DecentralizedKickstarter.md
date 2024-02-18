@@ -1,8 +1,9 @@
 ---
 index: 2
+slug: cs-458
 title: Decentralized Kickstarter 
 date: Spring 2023 
-description: CS458 - Blockchain Principles and Applications final project.
+description: CS458 - Blockchain Principles and Applications final project
 quickLinks:
     - title: Github
       link: https://github.com/daives01/decentralized-kickstarter
