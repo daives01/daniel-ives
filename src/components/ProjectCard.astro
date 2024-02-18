@@ -1,12 +1,10 @@
 ---
 const { data, url } = Astro.props;
-
-const showGithub = data.githubLink !== undefined;
-const showDemo = data.demoLink !== undefined;
-const showYoutube = data.youtubeLink !== undefined;
 ---
 
-<div class="bg-card flex flex-col justify-between transition hover:shadow-2xl hover:scale-105 border dark:border-none transition-hover rounded-lg w-64 p-4">
+<div
+  class="bg-card flex flex-col justify-between transition hover:shadow-2xl hover:scale-105 border dark:border-none transition-hover rounded-lg w-64 p-4"
+>
   <a href={url}>
     <h1 class="text-xl font-bold text-accent-foreground">
       <span>{data.title}</span>
@@ -19,25 +17,11 @@ const showYoutube = data.youtubeLink !== undefined;
 
   <div class="flex justify-start gap-4">
     {
-      showGithub && (
-        <a href={data.githubLink} class="hover:scale-105 transition transition-hover">
-          <span class="text-sm text-accent-foreground">Github</span>
+      data.quickLinks?.map((link) => (
+        <a href={link.link} class="hover:scale-105 transition transition-hover">
+          <span class="text-sm text-accent-foreground">{link.title}</span>
         </a>
-      )
-    }
-    {
-      showDemo && (
-        <a href={data.demoLink} class="hover:scale-105 transition transition-hover">
-          <span class="text-sm text-accent-foreground">Demo</span>
-        </a>
-      )
-    }
-    {
-      showYoutube && (
-        <a href={data.youtubeLink} class="hover:scale-105 transition transition-hover">
-          <span class="text-sm text-accent-foreground">Youtube</span>
-        </a>
-      )
+      ))
     }
   </div>
 </div>

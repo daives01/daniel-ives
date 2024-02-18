@@ -4,6 +4,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
 
 const projects = await getCollection("projects");
+projects.sort((a, b) => a.data.index - b.data.index);
 ---
 
 <BaseLayout>
@@ -11,7 +12,7 @@ const projects = await getCollection("projects");
     <h1 transition:name="my-projects" class="text-4xl font-bold text-transparent">
       <span class="bg-gradient-to-br from-accent-foreground to-foreground bg-clip-text">My Projects</span>
     </h1>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div transition:animate="slide" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {projects.map((project) => <ProjectCard data={project.data} url={`projects/${project.slug}`} />)}
     </div>
   </div>

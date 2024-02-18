@@ -4,12 +4,14 @@ import { z, defineCollection } from 'astro:content';
 const projectCollection = defineCollection({
     type: 'content',
     schema: z.object({
+        index: z.number(),
         title: z.string(),
         date: z.string(),
         description: z.string(),
-        githubLink: z.optional(z.string()),
-        demoLink: z.optional(z.string()),
-        youtubeLink: z.optional(z.string()),
+        quickLinks: z.array(z.object({
+            title: z.string(),
+            link: z.string()
+        })).optional()
     })
 
 });

@@ -1,9 +1,13 @@
 ---
+index: 2
 title: Decentralized Kickstarter 
 date: Spring 2023 
 description: CS458 - Blockchain Principles and Applications final project.
-githubLink: https://github.com/daives01/decentralized-kickstarter
-youtubeLink: https://youtu.be/KAwj5riJim4
+quickLinks:
+    - title: Github
+      link: https://github.com/daives01/decentralized-kickstarter
+    - title: Youtube
+      link: https://youtu.be/KAwj5riJim4
 
 ---
 
