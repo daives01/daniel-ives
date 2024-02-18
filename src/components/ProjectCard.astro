@@ -1,0 +1,23 @@
+---
+const { data, url } = Astro.props;
+---
+
+<div class="bg-card transition hover:shadow-2xl hover:scale-105 transition-hover rounded-lg w-64 p-4">
+  <a href={url}>
+    <h1 class="text-xl font-bold text-accent-foreground">
+      <span>{data.title}</span>
+    </h1>
+    <div class="col-span-2">
+        <p class="text-sm text-muted-foreground">{data.date}</p>
+    </div>
+    <p class="text-sm text-muted-foreground py-4">{data.description}</p>
+  </a>
+
+    <div class="flex justify-start gap-4">
+        <a href={data.githubLink} class="hover:scale-105">
+            <span class="text-sm text-accent-foreground">Github</span>
+        </a>
+        <a href={data.demoLink} class="hover:scale-105">
+            <span class="text-sm text-accent-foreground">Demo</span>
+        </a>
+</div>
