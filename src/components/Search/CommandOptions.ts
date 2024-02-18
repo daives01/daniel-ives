@@ -39,11 +39,11 @@ const pages: SearchSection = {
             },
         },
         {
-            title: "Work",
+            title: "Projects",
             icon: "IconBriefcase2",
             keywords: ["work", "projects", "portfolio"],
             action: () => {
-                navigate("/work")
+                navigate("/projects")
             },
         }
     ],

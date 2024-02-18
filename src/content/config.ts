@@ -7,9 +7,9 @@ const projectCollection = defineCollection({
         title: z.string(),
         date: z.string(),
         description: z.string(),
-        githubLink: z.string(),
-        demoLink: z.string(),
-        youtubeLink: z.string(),
+        githubLink: z.optional(z.string()),
+        demoLink: z.optional(z.string()),
+        youtubeLink: z.optional(z.string()),
     })
 
 });
