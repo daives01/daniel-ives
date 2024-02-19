@@ -28,13 +28,6 @@ const { title = "Daniel Ives", description = "Software Engineer" } =
 			}
 			localStorage.setItem("theme", "system");
 		}
-		// fade in for non-chrome browsers
-		const isChrome =
-			/Chrome/.test(navigator.userAgent) &&
-			/Google Inc/.test(navigator.vendor);
-		if (!isChrome) {
-			document.querySelector("html").classList.add("not-chrome");
-		}
 	}
 
 	init(document);
@@ -43,4 +36,4 @@ const { title = "Daniel Ives", description = "Software Engineer" } =
 		init(ev.newDocument);
 	} );
 </script>
-<ViewTransitions />
+<ViewTransitions fallback="animate" />

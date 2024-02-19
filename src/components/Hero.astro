@@ -6,43 +6,128 @@ import { Image, getImage } from "astro:assets";
 const optimizedImage = await getImage({
   src: daniel2,
   format: "webp",
-  quality: 75
-})
+  quality: 75,
+});
 ---
 
-<div class="grid grid-cols-1 md:grid-cols-3 justify-center align-middle items-center gap-4 h-full">
+<script is:inline>
+  if (localStorage.getItem("firstTime") === null) {
+    localStorage.setItem("firstTime", "false");
+    document.body.classList.add("first-time-fade");
+  }
+</script>
+
+<div
+  class='grid grid-cols-1 md:grid-cols-3 justify-center align-middle items-center gap-4 h-full'
+>
   <div class="flex flex-col h-full justify-center align-middle text-center">
-    <h2 class="text-4xl font-bold">Hi, I'm</h2>
+    <h2 class="text-4xl font-bold">
+      <span class="fade-1">Hi,</span><span class="fade-2"> I'm</span>
+    </h2>
     <h1 class="text-6xl font-bold text-transparent">
-      <span class="bg-gradient-to-br from-accent-foreground to-foreground bg-clip-text">Daniel Ives.</span>
+      <span
+        class="bg-gradient-to-br from-accent-foreground to-foreground bg-clip-text fade-3"
+        >Daniel Ives.</span
+      >
     </h1>
-    <div class="hidden md:flex flex-col md:flex-row justify-center align-middle gap-4 p-12">
-      <h2 class="text-xl font-bold text-center text-accent-foreground">
+    <div
+      class="hidden md:flex flex-col md:flex-row justify-center align-middle gap-4 p-12 fade-6"
+    >
+      <h2
+        transition:animate="fade"
+        class="text-xl font-bold text-center text-accent-foreground"
+      >
         <a href="/about">About Me</a>
       </h2>
-      <h2 transition:name="my-projects" class="text-xl font-bold text-center text-accent-foreground">
+      <h2
+        transition:name="my-projects"
+        class="text-xl font-bold text-center text-accent-foreground fade-7"
+      >
         <a href="/projects">My Projects</a>
       </h2>
     </div>
   </div>
-  <Image src={daniel} transition:name="image" alt="Daniel Ives" class="m-auto w-3/4 md:w-80 lg:w-96 h-auto rounded-full md:rounded-3xl object-cover object-top" />
-  <div transition:name="text-body" class="text-center">
+  <Image
+    src={daniel}
+    transition:name="image"
+    alt="Daniel Ives"
+    class="m-auto w-3/4 md:w-fit xl:w-5/6 h-auto rounded-full md:rounded-3xl object-cover object-top fade-4"
+  />
+  <div transition:name="text-body" class="text-center fade-4">
     <p class="text-4xl text-accent-foreground">software engineer</p>
     <p class="text-xl text-accent-foreground opacity-80">musician</p>
     <p class="text-xl text-accent-foreground opacity-70">rock climber</p>
-    <p class="text-xl text-accent-foreground opacity-60">slack emoji aficionado</p>
+    <p class="text-xl text-accent-foreground opacity-60">
+      slack emoji aficionado
+    </p>
     <p class="text-xl text-accent-foreground opacity-50">neovim poser</p>
-    <p class="text-xl text-accent-foreground opacity-40">excalidraw enthusiast</p>
-    <p class="text-xl text-accent-foreground opacity-30">future husband (in training)</p>
-    <p class="text-xl text-accent-foreground opacity-20">smiling while crouching</p>
-    <p class="text-xl text-accent-foreground opacity-10">typeracer 100+ WPM club member</p>
+    <p class="text-xl text-accent-foreground opacity-40">
+      excalidraw enthusiast
+    </p>
+    <p class="text-xl text-accent-foreground opacity-30">
+      future husband (in training)
+    </p>
+    <p class="text-xl text-accent-foreground opacity-20">
+      smiling while crouching
+    </p>
+    <p class="text-xl text-accent-foreground opacity-10">
+      typeracer 100+ WPM club member
+    </p>
   </div>
-  <div class="flex md:hidden flex-col md:flex-row justify-center align-middle gap-4 p-12">
-    <h2 class="text-xl font-bold text-center text-accent-foreground">
+  <div
+    class="flex md:hidden flex-col md:flex-row justify-center align-middle gap-4 p-12"
+  >
+    <h2 class="text-xl font-bold text-center text-accent-foreground fade-6">
       <a href="/about">About Me</a>
     </h2>
-    <h2 class="text-xl font-bold text-center text-accent-foreground">
+    <h2 class="text-xl font-bold text-center text-accent-foreground fade-7">
       <a href="/projects">My Projects</a>
     </h2>
   </div>
 </div>
+
+<style>
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  body.first-time-fade .fade-1,
+  body.first-time-fade .fade-2,
+  body.first-time-fade .fade-3,
+  body.first-time-fade .fade-4,
+  body.first-time-fade .fade-5,
+  body.first-time-fade .fade-6,
+  body.first-time-fade .fade-7 {
+    opacity: 0;
+    animation: fade 2s ease forwards;
+  }
+
+  body.first-time-fade .fade-1 {
+    animation-delay: 0.5s;
+  }
+
+  body.first-time-fade .fade-2 {
+    animation-delay: 1.5s;
+  }
+
+  body.first-time-fade .fade-3 {
+    animation-delay: 2s;
+  }
+
+  body.first-time-fade .fade-4 {
+    animation-delay: 3s;
+  }
+
+  body.first-time-fade .fade-5 {
+    animation-delay: 4s;
+  }
+
+  body.first-time-fade .fade-6 {
+    animation-delay: 4.1s;
+  }
+</style>

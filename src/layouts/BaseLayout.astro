@@ -22,19 +22,5 @@ const { title, description } = Astro.props;
 		<div class="h-full flex flex-col justify-start">
 			<slot />
 		</div>
-	</body><style>
-		@keyframes fadeIn {
-			0% {
-				opacity: 0;
-			}
-			100% {
-				opacity: 1;
-			}
-		}
-
-		.not-chrome > body {
-			/* fade in */
-			animation: fadeIn 1.5s ease-in-out;
-		}
-	</style>
+	</body>
 </html>
