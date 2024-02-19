@@ -8,7 +8,7 @@ quickLinks:
     - title: Github
       link: https://github.com/daives01/370project
     - title: Youtube
-      link: https://youtu.be/VxQ042pkxsU
+      link: https://youtu.be/vcTFDKN8CNg
 ---
 
 More detail coming soon!
