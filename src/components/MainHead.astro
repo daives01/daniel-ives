@@ -17,7 +17,6 @@ const { title = "Daniel Ives", description = "Software Engineer" } =
 <title>{title}</title>
 <script is:inline>
 	function init(document) {
-		console.log("Hello from the client!");
 		const theme = localStorage.getItem("theme");
 		if (theme === "dark") {
 			document.documentElement.classList.add("dark");
