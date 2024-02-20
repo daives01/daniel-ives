@@ -26,10 +26,10 @@ const optimizedImage = await getImage({
       <span class="bg-gradient-to-t from-accent-foreground2 to-primary-foreground dark:from-accent-foreground dark:to-accent-foreground2 bg-clip-text fade-3">Daniel Ives.</span>
     </h1>
     <div class="hidden md:flex flex-col md:flex-row justify-center align-middle gap-4 p-12">
-      <h2 transition:animate="fade" class="text-xl font-bold text-center text-accent-foreground fade-6 hover:scale-110 transition duration-700 hover:duration-100 hover:drop-shadow-lg hover:dark:shadow-accent-foreground ">
+      <h2 transition:animate="fade" class="text-xl font-bold text-center text-accent-foreground fade-5 hover:scale-110 transition duration-700 hover:duration-100 hover:drop-shadow-lg hover:dark:shadow-accent-foreground ">
         <a href="/about">About Me</a>
       </h2>
-      <h2 transition:name="my-projects" class="text-xl font-bold text-center text-accent-foreground fade-7 hover:scale-110 transition duration-700 hover:duration-100 hover:drop-shadow-lg hover:dark:shadow-accent-foreground ">
+      <h2 transition:name="my-projects" class="text-xl font-bold text-center text-accent-foreground fade-6 hover:scale-110 transition duration-700 hover:duration-100 hover:drop-shadow-lg hover:dark:shadow-accent-foreground ">
         <a href="/projects">My Projects</a>
       </h2>
     </div>
@@ -52,10 +52,10 @@ const optimizedImage = await getImage({
     <p class="text-xl text-foreground opacity-10">typeracer 100+ WPM club member</p>
   </div>
   <div class="flex md:hidden flex-col md:flex-row justify-center align-middle gap-4 p-12">
-    <h2 class="text-xl font-bold text-center text-accent-foreground fade-6">
+    <h2 class="text-xl font-bold text-center text-accent-foreground fade-5">
       <a href="/about">About Me</a>
     </h2>
-    <h2 class="text-xl font-bold text-center text-accent-foreground fade-7">
+    <h2 class="text-xl font-bold text-center text-accent-foreground fade-6">
       <a href="/projects">My Projects</a>
     </h2>
   </div>
@@ -76,8 +76,7 @@ const optimizedImage = await getImage({
   body.first-time-fade .fade-3,
   body.first-time-fade .fade-4,
   body.first-time-fade .fade-5,
-  body.first-time-fade .fade-6,
-  body.first-time-fade .fade-7 {
+  body.first-time-fade .fade-6 {
     opacity: 0;
     animation: fade 2s ease forwards;
   }
@@ -103,6 +102,6 @@ const optimizedImage = await getImage({
   }
 
   body.first-time-fade .fade-6 {
-    animation-delay: 4.1s;
+    animation-delay: 4.2s;
   }
 </style>
