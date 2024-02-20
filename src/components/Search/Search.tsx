@@ -36,16 +36,16 @@ export default function Search() {
 
     const themeOptions = () => {
         const themeOptions = [
-            { theme: "system" , icon: isDarkSystemTheme ? <allIcons.IconMoonStars /> : <allIcons.IconSun />, label: "System Theme" },
+            { theme: "system", icon: isDarkSystemTheme ? <allIcons.IconMoonStars /> : <allIcons.IconSun />, label: "System Theme" },
             { theme: "light", icon: <allIcons.IconSun />, label: "Light Mode" },
             { theme: "dark", icon: <allIcons.IconMoonStars />, label: "Dark Mode" },
         ];
-        
+
         return themeOptions.map(option => (
-            <CommandItem 
-                disabled={theme === option.theme} 
-                onSelect={() => { setTheme(option.theme as Theme) }} 
-                key={option.theme} 
+            <CommandItem
+                disabled={theme === option.theme}
+                onSelect={() => { setTheme(option.theme as Theme) }}
+                key={option.theme}
                 value={`${option.label} mode toggle mode light mode dark mode theme`}
             >
                 <div className="pr-2">
@@ -88,7 +88,7 @@ export default function Search() {
         <div>
             {isAboveMd ? (
                 <>
-                    <Button className="h-12 md:h-8 w-auto md:w-40 lg:w-64 justify-between relative rounded-[0.5rem] bg-background inline-flex" variant="outline" onClick={() => setOpen(true)}>
+                    <Button className="h-12 md:h-8 w-auto md:w-40 lg:w-64 justify-between relative rounded-[0.5rem] inline-flex" variant="outline" onClick={() => setOpen(true)}>
                         <span className="inline-flex text-muted-foreground">Search</span>
                         <kbd className="pointer-events-none hidden h-5 absolute top-[0.3rem] right-[0.3rem] select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
                             <span className="text-xs">{metaKey}</span>K
