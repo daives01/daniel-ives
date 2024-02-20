@@ -21,7 +21,7 @@ import type { Theme } from "../toggleTheme"
 export default function Search() {
     const [open, setOpen] = React.useState(false)
     const [theme, setTheme, isDarkSystemTheme] = useThemeToggle()
-    const { isAboveMd, md } = useBreakpoint("md")
+    const { isAboveMd } = useBreakpoint("md")
 
     React.useEffect(() => {
         const down = (e: KeyboardEvent) => {
