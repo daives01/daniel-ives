@@ -12,6 +12,7 @@
     --foreground: 210, 13%, 5%;
 
     --accent: 32, 80%, 25%;
+    --accent-2: 32, 63%, 68%;
     --border: var(--foreground-1);
     --ring: var(--accent);
     
@@ -50,14 +51,15 @@
  
   .dark {
     --background: 210, 13%, 5%;
-    --background-1: 195, 3%, 28%;
+    --background-1: 195, 5%, 16%;
     --background-2: 204, 2%, 51%;
     --foreground-2: 210, 4%, 71%;
     --foreground-1: 206, 15%, 91%;
     --foreground: 206, 37%, 96%;
 
     --accent: 32, 63%, 68%;
-    --border: var(--foreground-1);
+    --accent-2: 32, 80%, 25%;
+    --border: var(--background-1);
     --ring: var(--accent);
 
     --destructive: 12, 85%, 60%;
