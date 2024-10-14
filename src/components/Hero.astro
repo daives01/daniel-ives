@@ -10,12 +10,12 @@ const optimizedImage = await getImage({
 });
 ---
 
-<script is:inline>
+<!-- <script is:inline>
   if (sessionStorage.getItem("firstTime") === null) {
     sessionStorage.setItem("firstTime", "false");
     document.body.classList.add("first-time-fade");
   }
-</script>
+</script> -->
 
 <div class="grid grid-cols-1 md:grid-cols-3 justify-center align-middle items-center gap-4 h-full">
   <div class="flex flex-col h-full justify-center align-middle text-center">
@@ -42,12 +42,12 @@ const optimizedImage = await getImage({
   />
   <div transition:name="text-body" class="text-center drop-shadow-lg fade-4">
     <p class="text-4xl text-foreground">software engineer</p>
-    <p class="text-xl text-foreground opacity-80">musician</p>
-    <p class="text-xl text-foreground opacity-70">rock climber</p>
-    <p class="text-xl text-foreground opacity-60">slack emoji aficionado</p>
-    <p class="text-xl text-foreground opacity-50">neovim poser</p>
-    <p class="text-xl text-foreground opacity-40">excalidraw enthusiast</p>
-    <p class="text-xl text-foreground opacity-30">future husband (in training)</p>
+    <p class="text-xl text-foreground opacity-80">husband</p>
+    <p class="text-xl text-foreground opacity-70">musician</p>
+    <p class="text-xl text-foreground opacity-60">rock climber</p>
+    <p class="text-xl text-foreground opacity-50">slack emoji aficionado</p>
+    <p class="text-xl text-foreground opacity-40">neovim enjoyer</p>
+    <p class="text-xl text-foreground opacity-30">excalidraw enthusiast</p>
     <p class="text-xl text-foreground opacity-20">smiling while crouching</p>
     <p class="text-xl text-foreground opacity-10">typeracer 100+ WPM club member</p>
   </div>

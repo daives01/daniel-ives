@@ -82,6 +82,14 @@ const liveProjects: SearchSection = {
                 navigate("https://coffee-calculator.daniel-ives.com")
             },
         },
+        {
+            title: "LitShelf",
+            icon: "IconBook",
+            keywords: [],
+            action: () => {
+                navigate("https://litshelf.app")
+            },
+        },
     ]
 }
 

@@ -1,5 +1,5 @@
 ---
-index: 5
+index: 6
 slug: coffee-calculator
 title: Coffee Calculator
 date: Jan 2022
@@ -10,5 +10,4 @@ quickLinks:
     - title: Demo
       link: https://coffee-calculator.daniel-ives.com
 ---
-
 More detail coming soon!

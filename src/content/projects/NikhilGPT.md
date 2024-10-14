@@ -1,5 +1,5 @@
 ---
-index: 1
+index: 2
 slug: nikhil-gpt
 title: Nikhil GPT
 date: Spring 2023
@@ -9,7 +9,5 @@ quickLinks:
     link: https://github.com/daives01/nikhil-GPT
   - title: Slides 
     link: https://docs.google.com/presentation/d/1YlMTchm2tByENr3uPxy4TmXXW6qwdVQvGJyWvi21I94/edit?usp=sharing
-
 ---
-
 More detail coming soon!

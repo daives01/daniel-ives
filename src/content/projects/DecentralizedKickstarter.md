@@ -1,5 +1,5 @@
 ---
-index: 2
+index: 3
 slug: cs-458
 title: Decentralized Kickstarter 
 date: Spring 2023 
@@ -9,7 +9,5 @@ quickLinks:
       link: https://github.com/daives01/decentralized-kickstarter
     - title: Youtube
       link: https://youtu.be/KAwj5riJim4
-
 ---
-
 More detail coming soon!
