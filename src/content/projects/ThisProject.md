@@ -10,7 +10,7 @@ quickLinks:
 ---
 ## What is this site?
 
-Like many other software engineers, I feel an inherent need to share with others how cool and skilled I think I am. I mean really, did you see how fast each page loads? Did you notice my cnd + k menu? Have you ever seen a personal website with a dark mode? What about that AI generated drawing of me in the top left?
+Like many other software engineers, I feel an inherent need to share with others how cool and skilled I think I am. I mean really, did you see how fast each page loads? Did you notice my cmd + k menu? Have you ever seen a personal website with a dark mode? What about that AI generated drawing of me in the top left?
 
 Just kidding, I mostly built this to try out a few new technologies.
 

@@ -16,7 +16,7 @@ I took this class in Fall 2022. It was all about learning the basics of how comp
 
 1. Interactions with a 3d environment
 2. At least one animated blender model.
-3. A brief video presentation, under five minutes, outlining our creation.
+3. A brief video presentation, under five minutes, outlining the creation.
 
 I went a little above and beyond with this, as you can see in the [video](https://youtu.be/VxQ042pkxsU) presentation I made. I created a full 4km x 4km lunar terrain, bounded the player's oxygen meter, complete with realistic lighting, a time warp feature, and dynamic sound design.
 
@@ -34,4 +34,4 @@ Unity can't really handle solar system scale objects without some intense tricke
 
 ### Sound design
 
-As if this project didn't exceed the requirements enough, my older brother ([Henry Ives](https://henryives.com)) encouraged me to improve the sound design. After a late evening with our parent's baby grand piano, his microphones, and a lot of reverb. We compiled a bunch of sounds that work in any order. After that, I wrote a simple function that plays a random sound at random intervals. 
+As if this project didn't exceed the requirements enough, my older brother ([Henry Ives](https://henryives.com)) encouraged me to improve the sound design. After a late evening with our parent's baby grand piano, his microphones, and a lot of reverb, we compiled a bunch of sounds that work in any order. After that, I wrote a simple function that plays a random sound at random intervals.

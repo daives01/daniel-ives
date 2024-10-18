@@ -10,4 +10,6 @@ quickLinks:
     - title: Demo
       link: https://coffee-calculator.daniel-ives.com
 ---
-More detail coming soon!
+This was my first foray into NextJS, of course back in 2022 it was almost completely different. The need for this app arose because my Dad constantly asked me how many grams of coffee I use for *X* grams of water. Like a good software engineer, why spend 5 minutes writing it down on a notecard when I could spend 5 hours building an app for it?
+
+This app is extremely simple. No DB, just a nice UI with some dynamic recipes. I might revisit this someday to make it something more useful, but for now, my Dad still goes to it from time to time to remind himself of the right ratios.

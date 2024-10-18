@@ -10,4 +10,4 @@ quickLinks:
     - title: Youtube
       link: https://youtu.be/vcTFDKN8CNg
 ---
-More detail coming soon!
+That's right, I used AI before it was cool. But really, in addition to computer vision, this project was my first introduction to single board computers, communicating over a network, and building realtime software. Check out the video if you want to learn more.

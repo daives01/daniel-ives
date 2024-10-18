@@ -1,4 +1,3 @@
-import { setTheme, getThemePreference } from '@/components/toggleTheme'
 import { navigate } from 'astro:transitions/client'
 
 type SearchItem = {
