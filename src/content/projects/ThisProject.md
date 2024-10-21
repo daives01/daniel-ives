@@ -3,7 +3,7 @@ index: 1
 slug: this-project
 title: Personal site (this project!)
 date: Jan 2024
-description: An personal portfolio built with Astro and deployed on Cloudflare Pages 
+description: A personal portfolio built with Astro and deployed on Cloudflare Pages 
 quickLinks:
     - title: Github
       link: https://github.com/daives01/daniel-ives
