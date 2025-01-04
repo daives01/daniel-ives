@@ -1,5 +1,5 @@
 ---
-import daniel from "@/assets/daniel.jpg";
+import daniel1 from "@/assets/daniel-1.jpg";
 import daniel2 from "@/assets/daniel-2.jpg";
 import { Image, getImage } from "astro:assets";
 
@@ -28,7 +28,7 @@ const optimizedImage = await getImage({
     </div>
   </div>
   <Image
-    src={daniel}
+    src={daniel1}
     transition:name="image"
     alt="Daniel Ives"
     class="m-auto w-3/4 md:w-fit xl:w-5/6 h-auto rounded-full md:rounded-3xl object-cover object-top"
