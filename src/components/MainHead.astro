@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 interface Props {
 	title?: string | undefined;
 	description?: string | undefined;
@@ -36,4 +36,4 @@ const { title = "Daniel Ives", description = "Software Engineer" } =
 		init(ev.newDocument);
 	} );
 </script>
-<ViewTransitions fallback="animate" />
+<ClientRouter fallback="animate" />

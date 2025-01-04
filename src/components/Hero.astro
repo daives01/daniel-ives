@@ -10,26 +10,19 @@ const optimizedImage = await getImage({
 });
 ---
 
-<!-- <script is:inline>
-  if (sessionStorage.getItem("firstTime") === null) {
-    sessionStorage.setItem("firstTime", "false");
-    document.body.classList.add("first-time-fade");
-  }
-</script> -->
-
 <div class="grid grid-cols-1 md:grid-cols-3 justify-center align-middle items-center gap-4 h-full">
   <div class="flex flex-col h-full justify-center align-middle text-center">
     <h2 class="text-4xl font-bold">
-      <span class="fade-1">Hi,</span><span class="fade-2"> I'm</span>
+      <span>Hi,</span><span> I'm</span>
     </h2>
     <h1 class="text-6xl font-bold text-transparent">
-      <span class="bg-gradient-to-t from-accent-foreground2 to-primary-foreground dark:from-accent-foreground dark:to-accent-foreground2 bg-clip-text fade-3">Daniel Ives.</span>
+      <span class="bg-gradient-to-t from-accent-foreground2 to-primary-foreground dark:from-accent-foreground dark:to-accent-foreground2 bg-clip-text">Daniel Ives.</span>
     </h1>
     <div class="hidden md:flex flex-col md:flex-row justify-center align-middle gap-4 p-12">
-      <h2 transition:animate="fade" class="text-xl font-bold text-center text-accent-foreground fade-5 hover:scale-110 transition duration-700 hover:duration-100 hover:drop-shadow-lg hover:dark:shadow-accent-foreground ">
+      <h2 transition:animate="fade" class="text-xl font-bold text-center text-accent-foreground hover:scale-110 transition duration-700 hover:duration-100 hover:drop-shadow-lg hover:dark:shadow-accent-foreground ">
         <a href="/about">About Me</a>
       </h2>
-      <h2 transition:name="my-projects" class="text-xl font-bold text-center text-accent-foreground fade-6 hover:scale-110 transition duration-700 hover:duration-100 hover:drop-shadow-lg hover:dark:shadow-accent-foreground ">
+      <h2 transition:name="my-projects" class="text-xl font-bold text-center text-accent-foreground hover:scale-110 transition duration-700 hover:duration-100 hover:drop-shadow-lg hover:dark:shadow-accent-foreground ">
         <a href="/projects">My Projects</a>
       </h2>
     </div>
@@ -38,9 +31,9 @@ const optimizedImage = await getImage({
     src={daniel}
     transition:name="image"
     alt="Daniel Ives"
-    class="m-auto w-3/4 md:w-fit xl:w-5/6 h-auto rounded-full md:rounded-3xl object-cover object-top fade-4"
+    class="m-auto w-3/4 md:w-fit xl:w-5/6 h-auto rounded-full md:rounded-3xl object-cover object-top"
   />
-  <div transition:name="text-body" class="text-center drop-shadow-lg fade-4">
+  <div transition:name="text-body" class="text-center drop-shadow-lg">
     <p class="text-4xl text-foreground">software engineer</p>
     <p class="text-xl text-foreground opacity-80">husband</p>
     <p class="text-xl text-foreground opacity-70">musician</p>
@@ -52,56 +45,11 @@ const optimizedImage = await getImage({
     <p class="text-xl text-foreground opacity-10">typeracer 100+ WPM club member</p>
   </div>
   <div class="flex md:hidden flex-col md:flex-row justify-center align-middle gap-4 p-12">
-    <h2 class="text-xl font-bold text-center text-accent-foreground fade-5">
-      <a href="/about">About Me</a>
+    <h2 class="text-xl font-bold text-center text-accent-foreground">
+      <a href="/about" data-astro-prefetch="viewport">About Me</a>
     </h2>
-    <h2 class="text-xl font-bold text-center text-accent-foreground fade-6">
+    <h2 class="text-xl font-bold text-center text-accent-foreground">
       <a href="/projects">My Projects</a>
     </h2>
   </div>
 </div>
-
-<style>
-  @keyframes fade {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  body.first-time-fade .fade-1,
-  body.first-time-fade .fade-2,
-  body.first-time-fade .fade-3,
-  body.first-time-fade .fade-4,
-  body.first-time-fade .fade-5,
-  body.first-time-fade .fade-6 {
-    opacity: 0;
-    animation: fade 2s ease forwards;
-  }
-
-  body.first-time-fade .fade-1 {
-    animation-delay: 0.5s;
-  }
-
-  body.first-time-fade .fade-2 {
-    animation-delay: 1.5s;
-  }
-
-  body.first-time-fade .fade-3 {
-    animation-delay: 2s;
-  }
-
-  body.first-time-fade .fade-4 {
-    animation-delay: 3s;
-  }
-
-  body.first-time-fade .fade-5 {
-    animation-delay: 4s;
-  }
-
-  body.first-time-fade .fade-6 {
-    animation-delay: 4.2s;
-  }
-</style>
