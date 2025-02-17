@@ -9,6 +9,9 @@ export default defineConfig({
   prefetch: {
     prefetchAll: true,
   },
+  redirects: {
+    '/tesla': 'https://ts.la/daniel395842'
+    },
   integrations: [
     react(),
     tailwind({
