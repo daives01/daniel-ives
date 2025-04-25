@@ -10,7 +10,9 @@ export default defineConfig({
     prefetchAll: true,
   },
   redirects: {
-    '/tesla': 'https://ts.la/daniel395842'
+    '/tesla/daniel': 'https://ts.la/daniel395842',
+    '/tesla/quincy': 'https://ts.la/quincy11390',
+    '/tesla': 'https://ts.la/quincy11390'
     },
   integrations: [
     react(),
