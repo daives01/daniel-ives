@@ -17,13 +17,13 @@ const recentProjects = projects.filter((project) => project.slug === "moon-lande
   {recentProjects.length > 0 && (
     <>
       <p class="mb-4">
-        I occasionally build <a href="/projects">projects</a> in my free time. Here are some of my most recent ones:
+        I occasionally build <a href="/projects" data-astro-prefetch>projects</a> in my free time. Here are some of my most recent ones:
       </p>
       
       <div class="mb-6">
         {recentProjects.map((project) => (
           <div class="mb-2">
-            <a href={`/projects/${project.slug}`}>{project.data.title}</a>
+            <a href={`/projects/${project.slug}`} data-astro-prefetch>{project.data.title}</a>
           </div>
         ))}
       </div>
@@ -31,7 +31,7 @@ const recentProjects = projects.filter((project) => project.slug === "moon-lande
   )}
   
   <p class="mb-6">
-    You can read more <a href="/about">about me</a> and check out <a href="/tools">tools</a> I like, 
+    You can read more <a href="/about" data-astro-prefetch>about me</a> and check out <a href="/tools" data-astro-prefetch>tools</a> I like, 
     <a href="https://x.com/couponnephew">find me online</a>, or even <a href="https://linkedin.com/in/daniel-benjamin-ives">LinkedIn</a> for some reason.
   </p>
   

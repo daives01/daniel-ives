@@ -10,6 +10,7 @@ export default defineConfig({
   },
   prefetch: {
     prefetchAll: true, // Prefetch all links automatically for instant navigation
+    defaultStrategy: "viewport", // Prefetch links when they enter the viewport
   },
   integrations: [
     tailwind({
