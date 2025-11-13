@@ -88,6 +88,45 @@ const { prop } = Astro.props;
 - No manual toggle - automatic based on user's OS setting
 - Tailwind config: `darkMode: "media"`
 
+### Spacing Consistency
+**CRITICAL**: All spacing must be uniform and consistent across all pages.
+
+#### Heading Spacing
+- **H1 headings**: Always use `text-4xl font-bold mb-6` for page titles
+- **H2 headings**: Use `font-bold mb-4` for section headings
+- Never deviate from these patterns
+
+#### Navigation Spacing
+- **All pages with navigation**: Use the nav slot with absolute positioning
+- Standard nav pattern: `hidden md:block absolute top-0 md:top-8 left-6 right-6 pb-2 border-b border-gray-200 dark:border-gray-700`
+- Always use `slot="nav"` and `transition:name="page-nav"` for consistency
+- Navigation should NOT affect main content alignment
+
+#### Content Spacing
+- **Main content sections**: Use `mb-6` for primary spacing between major sections
+- **Paragraphs**: Use `mb-4` for regular paragraph spacing, `mb-6` for larger gaps
+- **Lists**: Use `mb-8` for spacing after lists, `space-y-2` for list items
+- **Project descriptions**: Use `mb-6` to match main content spacing
+
+#### BaseLayout Spacing
+- BaseLayout provides: `max-w-2xl mx-auto px-6 pt-6 md:pt-24 pb-12`
+- All pages inherit this - do NOT add extra padding that shifts content alignment
+- Content should align consistently across all pages
+
+#### Projects Page Specific
+- Timeline elements are absolutely positioned and should NOT affect main content
+- Years positioned at `-left-40`, vertical line at `-left-8`
+- Main content should have NO left padding (`md:pl-8` removed) to maintain alignment
+- Timeline extends to the left without shifting main content to the right
+
+#### Spacing Checklist
+When creating or editing pages, ensure:
+- ✅ H1 uses `mb-6` (not `mb-2` or other values)
+- ✅ Navigation uses the standard absolute positioning pattern
+- ✅ Main content sections use `mb-6`
+- ✅ No extra padding that shifts content alignment
+- ✅ Content aligns with other pages (check visually)
+
 ## TypeScript
 - Use TypeScript for all `.ts` and `.tsx` files (though we don't use TSX)
 - Define interfaces for component props
