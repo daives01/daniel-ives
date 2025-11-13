@@ -10,7 +10,7 @@ const recentProjects = projects.filter((project) => project.slug === "moon-lande
   <h1 class="text-4xl font-bold mb-6">Daniel Ives</h1>
   
   <p class="mb-6">
-    I'm a software engineer, husband, and musician. I work at <a href="https://bamboorose.com">Bamboo Rose</a> building full stack applications. 
+    I'm a software engineer and musician. I work at <a href="https://bamboorose.com">Bamboo Rose</a> building full stack applications. 
     I like space.
   </p>
   
@@ -21,11 +21,16 @@ const recentProjects = projects.filter((project) => project.slug === "moon-lande
       </p>
       
       <div class="mb-6">
+        <ul class="list-disc list-inside">
         {recentProjects.map((project) => (
-          <div class="mb-2">
+          <li class="mb-2">
             <a href={`/projects/${project.slug}`} data-astro-prefetch>{project.data.title}</a>
-          </div>
+          </li>
         ))}
+          <li class="mb-2">
+            more coming soon...
+          </li>
+        </ul>
       </div>
     </>
   )}

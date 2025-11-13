@@ -1,17 +1,5 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-
-const software = [
-  { name: "Excalidraw", url: "https://excalidraw.com" },
-  { name: "Neovim", url: "https://neovim.io" },
-  { name: "t3.chat", url: "https://t3.chat" },
-];
-
-const hardware = [
-  { name: "Lily58 Split Keyboard", url: "https://typeractive.xyz/pages/build/lily58" },
-  { name: "The Apple built-in trackpad", url: "#" },
-  { name: "The Apple laptop display", url: "#" },
-];
 ---
 
 <BaseLayout>
@@ -23,35 +11,32 @@ const hardware = [
   
   <h2 class="font-bold mb-4">Software</h2>
   <ul class="mb-8 space-y-2 list-disc list-inside">
-    {software.map((tool) => (
-      <li>
-        <a 
-          href={tool.url} 
-          target="_blank" 
-          rel="noopener noreferrer"
-        >
-          {tool.name}
-        </a>
-      </li>
-    ))}
+    <li>
+      <a href="https://excalidraw.com" target="_blank" rel="noopener noreferrer">Excalidraw</a>
+    </li>
+    <li>
+      <a href="https://neovim.io" target="_blank" rel="noopener noreferrer">Neovim</a>
+    </li>
+    <li>
+      <a href="https://t3.chat" target="_blank" rel="noopener noreferrer">t3.chat</a>
+    </li>
+    <li>
+      <a href="https://zen-browser.app" target="_blank" rel="noopener noreferrer">Zen Browser</a>
+    </li>
+    <li>
+      <a href="https://www.cursor.com" target="_blank" rel="noopener noreferrer">Cursor</a>, sometimes{" "}
+      <a href="https://neovim.io" target="_blank" rel="noopener noreferrer">Neovim</a>, always Vim motions
+    </li>
   </ul>
   
   <h2 class="font-bold mb-4">Hardware</h2>
   <ul class="space-y-2 list-disc list-inside">
-    {hardware.map((tool) => (
-      <li>
-        {tool.url === "#" ? (
-          tool.name
-        ) : (
-          <a 
-            href={tool.url} 
-            target="_blank" 
-            rel="noopener noreferrer"
-          >
-            {tool.name}
-          </a>
-        )}
-      </li>
-    ))}
+    <li>
+      <a href="https://typeractive.xyz/pages/build/lily58" target="_blank" rel="noopener noreferrer">Lily58 Split Keyboard</a>
+    </li>
+    <li>
+      <a href="https://www.amazon.com/Sennheiser-HD-Over-Audiophile-Headphones/dp/B08J9MVB6W" target="_blank" rel="noopener noreferrer">Sennheiser HD 560S</a>
+    </li>
+    <li>Lots of coffee :)</li>
   </ul>
 </BaseLayout>
