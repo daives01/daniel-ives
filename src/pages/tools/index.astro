@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { fade } from "astro:transitions";
 
 const software = [
   { name: "Excalidraw", url: "https://excalidraw.com" },
@@ -20,7 +19,7 @@ const hardware = [
     <a href="/" data-astro-prefetch>← Back to home</a>
   </nav>
   
-  <h1 class="text-4xl font-bold mb-6" transition:name="page-title" transition:animate={fade({ duration: 100 })}>Tools I Like</h1>
+  <h1 class="text-4xl font-bold mb-6">Tools I Like</h1>
   
   <h2 class="font-bold mb-4">Software</h2>
   <ul class="mb-8 space-y-2 list-disc list-inside">

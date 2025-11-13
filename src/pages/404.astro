@@ -3,7 +3,6 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import danielAvs from "@/assets/daniel-avs-bad.png";
 import danielNuggets from "@/assets/daniel-nuggets-bad.png";
 import { Image } from "astro:assets";
-import { fade } from "astro:transitions";
 ---
 
 <BaseLayout>
@@ -12,7 +11,7 @@ import { fade } from "astro:transitions";
       <Image src={danielAvs} alt="Daniel Avs" class="object-cover" quality="low"/>
     </div>
     <div class="flex flex-col justify-center text-center">
-      <h1 class="text-4xl font-bold mb-4" transition:name="page-title" transition:animate={fade({ duration: 100 })}>Ruh Roh!</h1>
+      <h1 class="text-4xl font-bold mb-4">Ruh Roh!</h1>
       <h2 class="text-2xl font-bold mb-4">This page doesn't exist.</h2>
       <a href="/" data-astro-prefetch>
         <h2 class="text-2xl font-bold mb-4">Go back home</h2>
