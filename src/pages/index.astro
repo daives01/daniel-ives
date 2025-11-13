@@ -9,14 +9,13 @@ const recentProjects = projects.filter((project) => project.slug === "moon-lande
 <BaseLayout>
   <h1 class="text-4xl font-bold mb-6">Daniel Ives</h1>
   
-  <p class="mb-4">
-    I'm a software engineer. I work at <a href="https://bamboorose.com">Bamboo Rose</a> building full stack applications. 
-    I've been coding for several years and enjoy building things that make a difference.
+  <p class="mb-6">
+    I'm a software engineer, husband, and musician. I work at <a href="https://bamboorose.com">Bamboo Rose</a> building full stack applications. 
+    I've been coding for several years and focus on shipping fast and building things that work.
   </p>
   
   <p class="mb-6">
-    Outside of work, I enjoy a variety of hobbies. I play drums for Avalanche and Nuggets games, love to rock climb, 
-    golf, ski, and hike. I'm always striving to improve my skills and learn new things.
+    You can <a href="/about">read more about me</a> or <a href="/blog">check out my blog posts</a>.
   </p>
   
   {recentProjects.length > 0 && (
@@ -36,9 +35,9 @@ const recentProjects = projects.filter((project) => project.slug === "moon-lande
   )}
   
   <p>
-    You can <a href="/projects">view all my projects</a>, <a href="/about">read more about me</a>, 
-    or <a href="https://github.com/daives01">check out my code on GitHub</a>. 
-    You can also find me on <a href="https://linkedin.com/in/daniel-benjamin-ives">LinkedIn</a> or 
+    You can also <a href="/projects">view all my projects</a>, 
+    <a href="https://github.com/daives01">check out my code on GitHub</a>, 
+    find me on <a href="https://linkedin.com/in/daniel-benjamin-ives">LinkedIn</a>, or 
     <a href="https://x.com/couponnephew">follow me online</a>.
   </p>
 </BaseLayout>

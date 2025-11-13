@@ -1,141 +1,122 @@
 # Daniel Ives Personal Site - Cursor Rules
 
 ## Project Overview
-This is a personal portfolio site built with Astro, React, TypeScript, and Tailwind CSS. The site uses Astro's island architecture - most content is static Astro components, with React components used only where interactivity is needed.
+This is a minimal personal portfolio site built with Astro, TypeScript, and Tailwind CSS. The site is designed to be fast, lightweight, and clean - prioritizing minimal bundle size and performance.
 
 ## Tech Stack
-- **Framework**: Astro 5.x with React integration
+- **Framework**: Astro 5.x (no React integration)
 - **Language**: TypeScript
-- **Styling**: Tailwind CSS with CSS variables (shadcn/ui style)
-- **UI Components**: shadcn/ui (Radix UI primitives)
-- **Icons**: Tabler Icons (`@tabler/icons-react`) and Lucide React
+- **Styling**: Tailwind CSS with minimal custom CSS
+- **Typography**: Nunito font (weights 400, 700 only)
 - **Build**: Astro build system with TypeScript checking
 
 ## File Structure
 - `src/pages/` - Astro pages (routes)
-- `src/components/` - Components (both `.astro` and `.tsx`)
-  - `src/components/ui/` - shadcn/ui components
-  - `src/components/hooks/` - React hooks
+  - `src/pages/index.astro` - Homepage
+  - `src/pages/about/` - About page
+  - `src/pages/projects/` - Projects listing and detail pages
+  - `src/pages/blog/` - Blog posts (skeleton)
+- `src/components/` - Astro components only
+  - `src/components/MainHead.astro` - Head component
 - `src/layouts/` - Astro layout components
+  - `src/layouts/BaseLayout.astro` - Base layout with centered content
+  - `src/layouts/ProjectLayout.astro` - Layout for project detail pages
 - `src/content/` - Markdown content files
-- `src/lib/` - Utility functions
+  - `src/content/projects/` - Project markdown files
 - `src/styles/` - Global styles
-- `src/assets/` - Static assets (images, etc.)
+  - `src/styles/globals.css` - Minimal CSS with system theme support
+- `public/` - Static assets (images, favicon)
 
 ## Path Aliases
 - Use `@/` prefix for imports from `src/`
   - `@/components` → `src/components`
-  - `@/lib/utils` → `src/lib/utils`
-  - `@/assets` → `src/assets`
+  - `@/layouts` → `src/layouts`
   - `@/styles` → `src/styles`
+  - `@/assets` → `src/assets`
+
+## Design Philosophy
+
+### Minimalism
+- Keep bundle size as small as possible
+- No unnecessary JavaScript or dependencies
+- Pure Astro components - no React
+- Simple, clean typography (only 2 font sizes: header and body)
+- Minimal color palette (grays + system theme)
+
+### Typography
+- **Header**: `text-4xl font-bold` for page titles
+- **Body**: Default size for all other text
+- Font: Nunito (weights 400 and 700 only)
+- Line height: `leading-7` for better readability
+
+### Color Scheme
+- Light mode: `bg-gray-50` background, black text
+- Dark mode: `bg-neutral-900` background, white text (via system preference)
+- Links: Underlined, no color accents
+- System theme: Automatically respects `prefers-color-scheme`
 
 ## Component Patterns
 
 ### Astro Components (`.astro`)
-- Use for static content and server-rendered components
-- Prefer Astro components when possible (better performance)
+- Use for ALL components (no React)
 - Use frontmatter (`---`) for imports and TypeScript
 - Use `class` attribute (not `className`) for Tailwind classes
-- Use `transition:name` and `transition:persist` for view transitions
 - Example:
 ```astro
 ---
-import Component from "@/components/Component.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 const { prop } = Astro.props;
 ---
 
-<div class="flex items-center">
-  <Component />
-</div>
-```
-
-### React Components (`.tsx`)
-- Use only when interactivity is needed (state, event handlers, hooks)
-- Import in Astro with `client:only="react"` directive
-- Use `className` (not `class`) for Tailwind classes
-- Use functional components with TypeScript
-- Example:
-```tsx
-import React from "react"
-import { Button } from "@/components/ui/button"
-
-export default function MyComponent() {
-  const [state, setState] = React.useState(false)
-  return <Button className="..." onClick={() => setState(true)} />
-}
+<BaseLayout>
+  <div class="flex items-center">
+    <p>{prop}</p>
+  </div>
+</BaseLayout>
 ```
 
 ## Styling Guidelines
 
 ### Tailwind CSS
 - Use Tailwind utility classes for styling
-- Use the `cn()` utility from `@/lib/utils` for conditional classes
-- Prefer CSS variables for theming (defined in `src/styles/globals.css`)
+- No custom CSS variables or complex theming
 - Use responsive prefixes (`md:`, `lg:`, etc.) for breakpoints
-- Example:
-```tsx
-import { cn } from "@/lib/utils"
-<div className={cn("base-classes", condition && "conditional-classes")} />
-```
+- Keep it simple - prefer standard Tailwind colors
 
-### CSS Variables
-- Theme colors use CSS variables (e.g., `bg-background`, `text-foreground`)
-- Color scheme: slate base with CSS variables for theming
-- Dark mode is handled via CSS variables and theme toggle
+### Dark Mode
+- Uses system preference (`prefers-color-scheme: dark`)
+- No manual toggle - automatic based on user's OS setting
+- Tailwind config: `darkMode: "media"`
 
 ## TypeScript
-- Use TypeScript for all `.ts` and `.tsx` files
+- Use TypeScript for all `.ts` and `.tsx` files (though we don't use TSX)
 - Define interfaces for component props
 - Use type imports: `import type { ... }`
-- Extend Astro's base TypeScript config
 - Use strict typing - avoid `any` when possible
-
-## Component Conventions
-
-### shadcn/ui Components
-- Located in `src/components/ui/`
-- Follow shadcn/ui patterns and API
-- Use Radix UI primitives under the hood
-- Import from `@/components/ui/[component-name]`
-
-### Icons
-- Use Tabler Icons (`@tabler/icons-react`) as primary icon library
-- Use Lucide React (`lucide-react`) as secondary option
-- Import specific icons: `import { IconName } from "@tabler/icons-react"`
-- Use icons as React components: `<IconName className="..." />`
-
-### Hooks
-- Custom hooks in `src/components/hooks/`
-- Use React hooks (`useState`, `useEffect`, etc.)
-- Follow React hooks naming convention (`use` prefix)
 
 ## Astro-Specific Patterns
 
-### View Transitions
-- Use `transition:name` for animated transitions between pages
-- Use `transition:persist` for elements that should persist across navigation
-- Example: `<div transition:name="content">...</div>`
-
-### Client Directives
-- `client:only="react"` - Use for React components that need interactivity
-- Only use client directives when necessary (prefer static Astro components)
-
 ### Content Collections
-- Markdown files in `src/content/` for projects/blog posts
-- Use frontmatter for metadata
+- Markdown files in `src/content/projects/` for projects
+- Use frontmatter for metadata (title, date, description, quickLinks)
+- Date format: "Season Year" (e.g., "Fall 2025", "Spring 2023")
 - Access via Astro's content collections API
+
+### Layouts
+- `BaseLayout`: Centered content (`max-w-2xl`), responsive padding
+- `ProjectLayout`: For individual project pages with navigation
 
 ## Code Style
 
 ### Naming
-- Components: PascalCase (`MyComponent.astro`, `MyComponent.tsx`)
+- Components: PascalCase (`MyComponent.astro`)
 - Files: Match component name
 - Functions: camelCase
 - Constants: UPPER_SNAKE_CASE or camelCase
 
 ### Formatting
 - Use 2 spaces for indentation
-- Use single quotes for strings in TypeScript/TSX
+- Use single quotes for strings in TypeScript
 - Use double quotes for strings in Astro templates
 - Trailing commas in objects/arrays
 
@@ -145,13 +126,14 @@ import { cn } from "@/lib/utils"
 - Sort imports logically
 
 ## Performance
-- Prefer Astro components over React components (better performance)
-- Use `client:only` sparingly - only when interactivity is required
-- Leverage Astro's static generation for most pages
-- Use `prefetch` for faster navigation (configured in `astro.config.mjs`)
+- Pure Astro components (no client-side JavaScript unless absolutely necessary)
+- Static generation for all pages
+- Lazy load images with `loading="lazy"`
+- Minimal CSS (no complex animations or transitions)
+- Small font loading (only 2 weights)
 
 ## Build & Development
-- `npm run dev` - Start dev server
+- `npm run dev` - Start dev server (localhost:4321)
 - `npm run build` - Build for production (includes type checking)
 - `npm run preview` - Preview production build
 - Type checking runs automatically on build via `@astrojs/check`
@@ -159,21 +141,48 @@ import { cn } from "@/lib/utils"
 ## Common Patterns
 
 ### Conditional Rendering
-- Astro: Use ternary or logical operators in template
-- React: Use ternary, `&&`, or `if` statements
+- Use ternary or logical operators in Astro templates
+- Example: `{condition && <div>Content</div>}`
 
 ### Asset Imports
-- Import images/assets in frontmatter: `import img from "@/assets/image.jpg"`
-- Use `.src` property: `<img src={img.src} />`
+- Static images in `public/` folder (served as-is, not processed)
+- Use regular `<img>` tags with `loading="lazy"` for performance
 
 ### Props
-- Astro: Access via `Astro.props` in frontmatter
-- React: Define interface and destructure props
+- Access via `Astro.props` in frontmatter
+- Define TypeScript interfaces for props
+
+## Page-Specific Notes
+
+### Homepage (`src/pages/index.astro`)
+- Simple intro paragraph
+- Links to About and Blog
+- Recent projects section (currently just Moon Lander)
+- External links at bottom
+
+### Projects Page (`src/pages/projects/index.astro`)
+- Timeline layout grouped by year
+- Years on left, vertical line, projects on right
+- Years sorted descending (newest first)
+- Navigation hidden on mobile
+
+### Project Detail Pages (`src/layouts/ProjectLayout.astro`)
+- Title, date, description
+- Simple, clean layout
+- Uses prose plugin for markdown content
+
+### About Page (`src/pages/about/index.astro`)
+- Bio content with image
+- Image on right side (desktop)
+
+### Blog Page (`src/pages/blog/index.astro`)
+- Currently skeleton/placeholder
+- Ready for future blog posts
 
 ## Notes
 - Site is deployed on Cloudflare Pages
-- Uses Astro's prefetch for faster navigation
-- Dark mode toggle via cmd+k menu
-- Responsive design with mobile-first approach
-- Uses `react-responsive` hook for breakpoint detection
-
+- Minimal dependencies (only Astro, Tailwind, TypeScript, typography plugin)
+- No React, no UI libraries, no icons libraries
+- System theme support (no manual toggle)
+- Mobile-first responsive design
+- Navigation hidden on mobile (users can swipe back)
