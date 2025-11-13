@@ -14,14 +14,10 @@ const recentProjects = projects.filter((project) => project.slug === "moon-lande
     I've been coding for several years and focus on shipping fast and building things that work.
   </p>
   
-  <p class="mb-6">
-    You can <a href="/about">read more about me</a> or <a href="/blog">check out my blog posts</a>.
-  </p>
-  
   {recentProjects.length > 0 && (
     <>
       <p class="mb-4">
-        Some of my most recent projects:
+        I occasionally build <a href="/projects">projects</a> in my free time. Here are some of my most recent ones:
       </p>
       
       <div class="mb-6">
@@ -34,10 +30,12 @@ const recentProjects = projects.filter((project) => project.slug === "moon-lande
     </>
   )}
   
+  <p class="mb-6">
+    You can read more <a href="/about">about me</a> and check out the <a href="/tools">tools I like</a>. 
+    You can <a href="https://x.com/couponnephew">find me online</a>, or even <a href="https://linkedin.com/in/daniel-benjamin-ives">LinkedIn</a> for some reason.
+  </p>
+  
   <p>
-    You can also <a href="/projects">view all my projects</a>, 
-    <a href="https://github.com/daives01">check out my code on GitHub</a>, 
-    find me on <a href="https://linkedin.com/in/daniel-benjamin-ives">LinkedIn</a>, or 
-    <a href="https://x.com/couponnephew">follow me online</a>.
+    Feel free to <a href="mailto:contact@daniel-ives.com">reach out</a>.
   </p>
 </BaseLayout>
