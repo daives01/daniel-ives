@@ -1,9 +1,6 @@
 ---
-// Learn about using Astro layouts:
-// https://docs.astro.build/en/core-concepts/layouts/
 import "@/styles/globals.css";
 import MainHead from "../components/MainHead.astro";
-import Nav from "../components/Nav.astro";
 
 interface Props {
 	title?: string | undefined;
@@ -17,10 +14,9 @@ const { title, description } = Astro.props;
 	<head>
 		<MainHead title={title} description={description} />
 	</head>
-	<body class="flex flex-col w-full h-lvh overflow-x-hidden">
-		<Nav transition:persist />
-		<div class="h-full flex flex-col justify-start">
+	<body>
+		<main class="max-w-2xl mx-auto px-6 pt-24 pb-12">
 			<slot />
-		</div>
+		</main>
 	</body>
 </html>

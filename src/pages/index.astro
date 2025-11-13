@@ -1,8 +1,53 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Hero from "@/components/Hero.astro"
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
+projects.sort((a, b) => a.data.index - b.data.index);
+const featuredProjects = projects.slice(0, 5);
 ---
 
 <BaseLayout>
-    <Hero />
+  <div class="flex flex-col md:flex-row gap-8 mb-8">
+    <div class="flex-1">
+      <h1 class="text-4xl font-bold mb-6">Daniel Ives</h1>
+      
+      <p class="mb-4">
+        I'm a software engineer. I work at <a href="https://bamboorose.com">Bamboo Rose</a> building full stack applications. 
+        I've been coding for several years and enjoy building things that make a difference.
+      </p>
+      
+      <p class="mb-6">
+        Outside of work, I enjoy a variety of hobbies. I play drums for Avalanche and Nuggets games, love to rock climb, 
+        golf, ski, and hike. I'm always striving to improve my skills and learn new things.
+      </p>
+    </div>
+    
+    {/* <img 
+      src="/daniel.jpg" 
+      alt="Daniel Ives" 
+      loading="lazy"
+      class="w-48 md:w-64 aspect-[2/3] rounded-lg object-cover object-top flex-shrink-0"
+      style="object-position: top 20%;"
+    /> */}
+  </div>
+  
+  <p class="mb-6">
+    Some of my favorite projects include:
+  </p>
+  
+  <ul class="list-disc list-inside mb-6 space-y-1">
+    {featuredProjects.map((project) => (
+      <li>
+        <a href={`/projects/${project.slug}`}>{project.data.title}</a>
+      </li>
+    ))}
+  </ul>
+  
+  <p>
+    You can <a href="/projects">view all my projects</a>, <a href="/about">read more about me</a>, 
+    or <a href="https://github.com/daives01">check out my code on GitHub</a>. 
+    You can also find me on <a href="https://linkedin.com/in/daniel-benjamin-ives">LinkedIn</a> or 
+    <a href="https://x.com/couponnephew">follow me online</a>.
+  </p>
 </BaseLayout>

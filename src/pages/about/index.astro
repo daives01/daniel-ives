@@ -1,10 +1,38 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Bio from "@/components/Bio.astro";
 ---
 
 <BaseLayout>
-  <div class="grid gap-4 h-full w-full p-4">
-    <Bio />
+  <div class="flex flex-col md:flex-row gap-8 mb-8">
+    <div class="flex-1">
+      <h1 class="text-4xl font-bold mb-6">About</h1>
+      
+      <p class="mb-4">
+        Starting as an intern at Backbone PLM, I immersed myself in web development alongside my traditional CS education. 
+        Now I'm a full stack engineer at Bamboo Rose, the parent company of Backbone PLM, since graduating from CSU in May 2023.
+      </p>
+      
+      <p class="mb-4">
+        Outside of work, I enjoy a variety of hobbies. I play drums for Avalanche and Nuggets games, love to rock climb, 
+        golf, ski, and hike.
+      </p>
+      
+      <p class="mb-6">
+        I'm always striving to improve my skills and learn new things. I pride myself on being a natural leader, learning 
+        new things extremely quickly, and communicating effectively.
+      </p>
+    </div>
+    
+    <img 
+      src="/daniel.jpg" 
+      alt="Daniel Ives" 
+      loading="lazy"
+      class="w-48 md:w-64 aspect-[2/3] rounded-lg object-cover object-top flex-shrink-0"
+      style="object-position: top 20%;"
+    />
   </div>
+  
+  <p>
+    <a href="/">← Back to home</a>
+  </p>
 </BaseLayout>

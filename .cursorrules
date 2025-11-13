@@ -1,0 +1,179 @@
+# Daniel Ives Personal Site - Cursor Rules
+
+## Project Overview
+This is a personal portfolio site built with Astro, React, TypeScript, and Tailwind CSS. The site uses Astro's island architecture - most content is static Astro components, with React components used only where interactivity is needed.
+
+## Tech Stack
+- **Framework**: Astro 5.x with React integration
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS with CSS variables (shadcn/ui style)
+- **UI Components**: shadcn/ui (Radix UI primitives)
+- **Icons**: Tabler Icons (`@tabler/icons-react`) and Lucide React
+- **Build**: Astro build system with TypeScript checking
+
+## File Structure
+- `src/pages/` - Astro pages (routes)
+- `src/components/` - Components (both `.astro` and `.tsx`)
+  - `src/components/ui/` - shadcn/ui components
+  - `src/components/hooks/` - React hooks
+- `src/layouts/` - Astro layout components
+- `src/content/` - Markdown content files
+- `src/lib/` - Utility functions
+- `src/styles/` - Global styles
+- `src/assets/` - Static assets (images, etc.)
+
+## Path Aliases
+- Use `@/` prefix for imports from `src/`
+  - `@/components` → `src/components`
+  - `@/lib/utils` → `src/lib/utils`
+  - `@/assets` → `src/assets`
+  - `@/styles` → `src/styles`
+
+## Component Patterns
+
+### Astro Components (`.astro`)
+- Use for static content and server-rendered components
+- Prefer Astro components when possible (better performance)
+- Use frontmatter (`---`) for imports and TypeScript
+- Use `class` attribute (not `className`) for Tailwind classes
+- Use `transition:name` and `transition:persist` for view transitions
+- Example:
+```astro
+---
+import Component from "@/components/Component.astro";
+const { prop } = Astro.props;
+---
+
+<div class="flex items-center">
+  <Component />
+</div>
+```
+
+### React Components (`.tsx`)
+- Use only when interactivity is needed (state, event handlers, hooks)
+- Import in Astro with `client:only="react"` directive
+- Use `className` (not `class`) for Tailwind classes
+- Use functional components with TypeScript
+- Example:
+```tsx
+import React from "react"
+import { Button } from "@/components/ui/button"
+
+export default function MyComponent() {
+  const [state, setState] = React.useState(false)
+  return <Button className="..." onClick={() => setState(true)} />
+}
+```
+
+## Styling Guidelines
+
+### Tailwind CSS
+- Use Tailwind utility classes for styling
+- Use the `cn()` utility from `@/lib/utils` for conditional classes
+- Prefer CSS variables for theming (defined in `src/styles/globals.css`)
+- Use responsive prefixes (`md:`, `lg:`, etc.) for breakpoints
+- Example:
+```tsx
+import { cn } from "@/lib/utils"
+<div className={cn("base-classes", condition && "conditional-classes")} />
+```
+
+### CSS Variables
+- Theme colors use CSS variables (e.g., `bg-background`, `text-foreground`)
+- Color scheme: slate base with CSS variables for theming
+- Dark mode is handled via CSS variables and theme toggle
+
+## TypeScript
+- Use TypeScript for all `.ts` and `.tsx` files
+- Define interfaces for component props
+- Use type imports: `import type { ... }`
+- Extend Astro's base TypeScript config
+- Use strict typing - avoid `any` when possible
+
+## Component Conventions
+
+### shadcn/ui Components
+- Located in `src/components/ui/`
+- Follow shadcn/ui patterns and API
+- Use Radix UI primitives under the hood
+- Import from `@/components/ui/[component-name]`
+
+### Icons
+- Use Tabler Icons (`@tabler/icons-react`) as primary icon library
+- Use Lucide React (`lucide-react`) as secondary option
+- Import specific icons: `import { IconName } from "@tabler/icons-react"`
+- Use icons as React components: `<IconName className="..." />`
+
+### Hooks
+- Custom hooks in `src/components/hooks/`
+- Use React hooks (`useState`, `useEffect`, etc.)
+- Follow React hooks naming convention (`use` prefix)
+
+## Astro-Specific Patterns
+
+### View Transitions
+- Use `transition:name` for animated transitions between pages
+- Use `transition:persist` for elements that should persist across navigation
+- Example: `<div transition:name="content">...</div>`
+
+### Client Directives
+- `client:only="react"` - Use for React components that need interactivity
+- Only use client directives when necessary (prefer static Astro components)
+
+### Content Collections
+- Markdown files in `src/content/` for projects/blog posts
+- Use frontmatter for metadata
+- Access via Astro's content collections API
+
+## Code Style
+
+### Naming
+- Components: PascalCase (`MyComponent.astro`, `MyComponent.tsx`)
+- Files: Match component name
+- Functions: camelCase
+- Constants: UPPER_SNAKE_CASE or camelCase
+
+### Formatting
+- Use 2 spaces for indentation
+- Use single quotes for strings in TypeScript/TSX
+- Use double quotes for strings in Astro templates
+- Trailing commas in objects/arrays
+
+### Imports
+- Group imports: external packages → internal components → types
+- Use absolute imports with `@/` prefix
+- Sort imports logically
+
+## Performance
+- Prefer Astro components over React components (better performance)
+- Use `client:only` sparingly - only when interactivity is required
+- Leverage Astro's static generation for most pages
+- Use `prefetch` for faster navigation (configured in `astro.config.mjs`)
+
+## Build & Development
+- `npm run dev` - Start dev server
+- `npm run build` - Build for production (includes type checking)
+- `npm run preview` - Preview production build
+- Type checking runs automatically on build via `@astrojs/check`
+
+## Common Patterns
+
+### Conditional Rendering
+- Astro: Use ternary or logical operators in template
+- React: Use ternary, `&&`, or `if` statements
+
+### Asset Imports
+- Import images/assets in frontmatter: `import img from "@/assets/image.jpg"`
+- Use `.src` property: `<img src={img.src} />`
+
+### Props
+- Astro: Access via `Astro.props` in frontmatter
+- React: Define interface and destructure props
+
+## Notes
+- Site is deployed on Cloudflare Pages
+- Uses Astro's prefetch for faster navigation
+- Dark mode toggle via cmd+k menu
+- Responsive design with mobile-first approach
+- Uses `react-responsive` hook for breakpoint detection
+
