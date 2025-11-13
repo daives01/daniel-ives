@@ -15,15 +15,11 @@ const { title = "Daniel Ives", description = "Software Engineer" } =
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="generator" content={Astro.generator} />
 <title>{title}</title>
-<!-- Preconnect to Google Fonts for faster font loading -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<!-- Load font stylesheet with optional display to prevent FOIT -->
-<!-- font-display: optional only shows custom font if it loads quickly, otherwise uses fallback immediately -->
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=optional" rel="stylesheet" />
-<!-- Inline critical CSS to prevent FOUC -->
+<!-- Critical inline CSS - must be first to prevent FOUC during navigation -->
 <style is:global>
+  /* Hide body until styles are loaded to prevent FOUC */
   body {
+    visibility: hidden;
     background-color: #f9fafb;
     color: #000000;
     line-height: 1.75rem;
@@ -36,6 +32,30 @@ const { title = "Daniel Ives", description = "Software Engineer" } =
       color: #ffffff;
     }
   }
+  /* Show body once styles are loaded */
+  body.loaded {
+    visibility: visible;
+  }
 </style>
+<!-- Preconnect to Google Fonts for faster font loading -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<!-- Load font stylesheet with optional display to prevent FOIT -->
+<!-- font-display: optional only shows custom font if it loads quickly, otherwise uses fallback immediately -->
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=optional" rel="stylesheet" />
+<!-- Show body once DOM and styles are ready -->
+<script is:inline>
+  // Show body immediately - styles are already loaded inline above
+  // This prevents FOUC during navigation when pages are prefetched
+  (function() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('loaded');
+      });
+    } else {
+      document.body.classList.add('loaded');
+    }
+  })();
+</script>
 <!-- Prefetch about page image (Astro's prefetch handles pages automatically) -->
 <link rel="prefetch" href={daniel2.src} as="image" />
