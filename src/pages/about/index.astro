@@ -3,8 +3,12 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
+  <nav class="hidden md:block mb-8 pb-4 border-b border-gray-200 dark:border-gray-700">
+    <a href="/">← Back to home</a>
+  </nav>
+  
   <div class="flex flex-col md:flex-row gap-8 mb-8">
-    <div class="flex-1">
+    <div>
       <h1 class="text-4xl font-bold mb-6">About</h1>
       
       <p class="mb-4">
@@ -31,8 +35,4 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
       style="object-position: top 20%;"
     />
   </div>
-  
-  <p>
-    <a href="/">← Back to home</a>
-  </p>
 </BaseLayout>

@@ -2,7 +2,7 @@
 index: 0
 slug: moon-lander
 title: Moon Lander
-date: Oct 2025
+date: Fall 2025
 description: A 3D lunar landing simulator where you program autonomous rocket guidance in JavaScript
 quickLinks:
 - title: Play Online

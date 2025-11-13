@@ -7,28 +7,39 @@ projects.sort((a, b) => a.data.index - b.data.index);
 ---
 
 <BaseLayout>
+  <nav class="hidden md:block mb-8 pb-4 border-b border-gray-200 dark:border-gray-700">
+    <a href="/">← Back to home</a>
+  </nav>
+  
   <h1 class="text-4xl font-bold mb-6">Projects</h1>
   
-  <div class="space-y-8 mb-6">
-    {projects.map((project) => (
-      <div>
-        <h2 class="text-2xl font-semibold mb-2">
-          <a href={`/projects/${project.slug}`}>{project.data.title}</a>
-        </h2>
-        <p class="text-sm text-gray-600 dark:text-gray-400 mb-1">{project.data.date}</p>
-        <p class="mb-2">{project.data.description}</p>
-        {project.data.quickLinks && (
-          <div class="space-x-4">
-            {project.data.quickLinks.map((link) => (
-              <a href={link.link} class="text-sm">{link.title}</a>
-            ))}
+  <div class="relative mb-6">
+    <div class="absolute -left-8 top-0 bottom-0 w-px bg-gray-300 dark:bg-gray-700 hidden md:block"></div>
+    
+    <div class="space-y-8">
+      {projects.map((project) => (
+        <div class="relative flex flex-col md:flex-row gap-4 md:gap-8">
+          <div class="absolute -left-40 w-28 flex-shrink-0 hidden md:block">
+            <div class="text-gray-600 dark:text-gray-400 whitespace-nowrap text-right">{project.data.date}</div>
           </div>
-        )}
-      </div>
-    ))}
+          
+          <div class="absolute -left-8 top-2 w-2 h-2 -translate-x-1/2 rounded-full bg-gray-300 dark:bg-gray-700 hidden md:block"></div>
+          
+          <div class="flex-1">
+            <h2 class="font-bold mb-2">
+              <a href={`/projects/${project.slug}`}>{project.data.title}</a>
+            </h2>
+            <p class="mb-2">{project.data.description}</p>
+            {project.data.quickLinks && (
+              <div class="space-x-4">
+                {project.data.quickLinks.map((link: { title: string; link: string }) => (
+                  <a href={link.link}>{link.title}</a>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
   </div>
-  
-  <p>
-    <a href="/">← Back to home</a>
-  </p>
 </BaseLayout>

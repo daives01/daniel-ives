@@ -2,7 +2,7 @@
 index: 1
 slug: this-project
 title: Personal site (this project!)
-date: Jan 2024
+date: Winter 2024
 description: A personal portfolio built with Astro and deployed on Cloudflare Pages 
 quickLinks:
     - title: Github
