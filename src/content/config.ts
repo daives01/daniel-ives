@@ -11,7 +11,8 @@ const projectCollection = defineCollection({
         quickLinks: z.array(z.object({
             title: z.string(),
             link: z.string()
-        })).optional()
+        })).optional(),
+        hasArticle: z.boolean().optional().default(true)
     })
 
 });

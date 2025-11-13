@@ -41,7 +41,11 @@ const years = Object.keys(projectsByYear).sort((a, b) => parseInt(b) - parseInt(
             {projectsByYear[year].map((project) => (
               <div>
                 <h2 class="font-bold mb-2">
-                  <a href={`/projects/${project.slug}`}>{project.data.title}</a>
+                  {project.data.hasArticle === false ? (
+                    project.data.title
+                  ) : (
+                    <a href={`/projects/${project.slug}`}>{project.data.title}</a>
+                  )}
                 </h2>
                 <p class="mb-2">{project.data.description}</p>
                 {project.data.quickLinks && (

@@ -4,10 +4,13 @@ import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
   const projectEntries = await getCollection("projects");
-  return projectEntries.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }));
+  // Only generate pages for projects that have articles
+  return projectEntries
+    .filter((entry) => entry.data.hasArticle !== false)
+    .map((entry) => ({
+      params: { slug: entry.slug },
+      props: { entry },
+    }));
 }
 
 const { entry } = Astro.props;

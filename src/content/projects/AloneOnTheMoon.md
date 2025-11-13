@@ -8,8 +8,6 @@ quickLinks:
     - title: Youtube 
       link: https://youtu.be/VxQ042pkxsU
 ---
-# [CS462](https://www.cs.colostate.edu/~cs462/) - Engaging in Virtual Worlds, Final Project
-
 ### Overview
 
 I took this class in Fall 2022. It was all about learning the basics of how computers render graphics. The culmination of this was a semester-long project to create a "Virtual World" in Unity. We basically had to have:

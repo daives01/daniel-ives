@@ -1,11 +1,24 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import danielAvs from "@/assets/daniel-avs-bad.png";
+import danielNuggets from "@/assets/daniel-nuggets-bad.png";
+import { Image } from "astro:assets";
 ---
 
 <BaseLayout>
-  <h1 class="text-4xl font-bold mb-4">404</h1>
-  <p class="mb-4">This page doesn't exist.</p>
-  <p>
-    <a href="/">← Back to home</a>
-  </p>
+  <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+    <div class="w-1/4 max-w-md aspect-auto overflow-hidden rounded-2xl">
+      <Image src={danielAvs} alt="Daniel Avs" class="object-cover" quality="low"/>
+    </div>
+    <div class="flex flex-col justify-center text-center">
+      <h1 class="text-4xl font-bold mb-4">Ruh Roh!</h1>
+      <h2 class="text-2xl font-bold mb-4">This page doesn't exist.</h2>
+      <a href="/">
+        <h2 class="text-2xl font-bold mb-4">Go back home</h2>
+      </a>
+    </div>
+    <div class="w-1/4 max-w-md aspect-auto overflow-hidden rounded-2xl">
+      <Image src={danielNuggets} alt="Daniel Nuggets" class="object-cover" quality="low"/>
+    </div>
+  </div>
 </BaseLayout>
