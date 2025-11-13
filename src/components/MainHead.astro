@@ -1,6 +1,17 @@
 ---
 import daniel2 from "@/assets/daniel-2.jpg";
 
+// Font configuration - change this to try different fonts
+// FONT_FAMILY: The actual font name (with spaces) for CSS
+// FONT_FAMILY_URL: The font name for Google Fonts URL (use + for spaces)
+// Examples: 
+//   - Nunito: FONT_FAMILY="Nunito", FONT_FAMILY_URL="Nunito"
+//   - Work Sans: FONT_FAMILY="Work Sans", FONT_FAMILY_URL="Work+Sans"
+//   - Space Grotesk: FONT_FAMILY="Space Grotesk", FONT_FAMILY_URL="Space+Grotesk"
+const FONT_FAMILY = "Space Grotesk";
+const FONT_FAMILY_URL = "Space+Grotesk";
+const FONT_WEIGHTS = "400;700";
+
 interface Props {
 	title?: string | undefined;
 	description?: string | undefined;
@@ -8,20 +19,14 @@ interface Props {
 
 const { title = "Daniel Ives", description = "Software Engineer" } =
 	Astro.props;
----
-<meta charset="UTF-8" />
-<link rel="icon" href="favicon.ico" type="image/x-icon" />
-<meta name="description" property="og:description" content={description} />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="generator" content={Astro.generator} />
-<title>{title}</title>
-<!-- Critical inline CSS - ensures styles apply immediately during navigation -->
-<style is:global>
+
+// Construct inline CSS with font family
+const inlineCss = `
   body {
     background-color: #f9fafb;
     color: #000000;
     line-height: 1.75rem;
-    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: '${FONT_FAMILY}', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     margin: 0;
   }
   @media (prefers-color-scheme: dark) {
@@ -30,12 +35,22 @@ const { title = "Daniel Ives", description = "Software Engineer" } =
       color: #ffffff;
     }
   }
-</style>
+`;
+---
+<meta charset="UTF-8" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<meta name="description" property="og:description" content={description} />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+<title>{title}</title>
+<!-- Critical inline CSS - ensures styles apply immediately during navigation -->
+<style is:global set:html={inlineCss}></style>
 <!-- Preconnect to Google Fonts for faster font loading -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<!-- Load font stylesheet with optional display to prevent FOIT -->
-<!-- font-display: optional only shows custom font if it loads quickly, otherwise uses fallback immediately -->
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=optional" rel="stylesheet" />
+<!-- Load font stylesheet with block display to prevent font swap and layout shift -->
+<!-- font-display: block waits for font to load (up to 3s) before showing text, preventing layout shift -->
+<!-- This ensures Nunito is used from the start, avoiding any content movement when font loads -->
+<link href={`https://fonts.googleapis.com/css2?family=${FONT_FAMILY_URL}:wght@${FONT_WEIGHTS}&display=block`} rel="stylesheet" />
 <!-- Prefetch about page image (Astro's prefetch handles pages automatically) -->
 <link rel="prefetch" href={daniel2.src} as="image" />
