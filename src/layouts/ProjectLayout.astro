@@ -4,7 +4,7 @@ const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout>
-  <nav class="hidden md:block mb-8 pb-4 border-b border-gray-200 dark:border-gray-700">
+  <nav slot="nav" transition:name="page-nav" class="hidden md:block absolute top-0 md:top-8 left-6 right-6 pb-2 border-b border-gray-200 dark:border-gray-700">
     <a href="/projects" data-astro-prefetch>← Back to projects</a>
   </nav>
   

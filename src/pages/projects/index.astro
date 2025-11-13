@@ -19,14 +19,14 @@ const years = Object.keys(projectsByYear).sort((a, b) => parseInt(b) - parseInt(
 ---
 
 <BaseLayout>
-  <nav class="hidden md:block mb-8 pb-4 border-b border-gray-200 dark:border-gray-700">
+  <nav slot="nav" transition:name="page-nav" class="hidden md:block absolute top-0 md:top-8 left-6 right-6 pb-2 border-b border-gray-200 dark:border-gray-700">
     <a href="/" data-astro-prefetch>← Back to home</a>
   </nav>
   
   <h1 class="text-4xl font-bold mb-6">Projects</h1>
   
   <div class="relative mb-6">
-    <div class="absolute -left-8 top-0 bottom-0 w-px bg-gray-300 dark:bg-gray-700 hidden md:block"></div>
+    <div class="absolute -left-8 top-2 bottom-0 w-px bg-gray-300 dark:bg-gray-700 hidden md:block"></div>
     
     <div class="space-y-12">
       {years.map((year) => (
