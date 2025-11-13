@@ -3,7 +3,19 @@ import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const projects = await getCollection("projects");
-projects.sort((a, b) => a.data.index - b.data.index);
+
+// Group projects by year
+const projectsByYear = projects.reduce((acc, project) => {
+  const year = project.data.date.split(' ')[1]; // Extract year from "Season Year"
+  if (!acc[year]) {
+    acc[year] = [];
+  }
+  acc[year].push(project);
+  return acc;
+}, {} as Record<string, Array<typeof projects[number]>>);
+
+// Sort years descending (newest first)
+const years = Object.keys(projectsByYear).sort((a, b) => parseInt(b) - parseInt(a));
 ---
 
 <BaseLayout>
@@ -16,27 +28,31 @@ projects.sort((a, b) => a.data.index - b.data.index);
   <div class="relative mb-6">
     <div class="absolute -left-8 top-0 bottom-0 w-px bg-gray-300 dark:bg-gray-700 hidden md:block"></div>
     
-    <div class="space-y-8">
-      {projects.map((project) => (
-        <div class="relative flex flex-col md:flex-row gap-4 md:gap-8">
+    <div class="space-y-12">
+      {years.map((year) => (
+        <div class="relative">
           <div class="absolute -left-40 w-28 flex-shrink-0 hidden md:block">
-            <div class="text-gray-600 dark:text-gray-400 whitespace-nowrap text-right">{project.data.date}</div>
+            <div class="text-gray-600 dark:text-gray-400 whitespace-nowrap text-right font-bold">{year}</div>
           </div>
           
           <div class="absolute -left-8 top-2 w-2 h-2 -translate-x-1/2 rounded-full bg-gray-300 dark:bg-gray-700 hidden md:block"></div>
           
-          <div class="flex-1">
-            <h2 class="font-bold mb-2">
-              <a href={`/projects/${project.slug}`}>{project.data.title}</a>
-            </h2>
-            <p class="mb-2">{project.data.description}</p>
-            {project.data.quickLinks && (
-              <div class="space-x-4">
-                {project.data.quickLinks.map((link: { title: string; link: string }) => (
-                  <a href={link.link}>{link.title}</a>
-                ))}
+          <div class="flex-1 md:pl-8 space-y-6">
+            {projectsByYear[year].map((project) => (
+              <div>
+                <h2 class="font-bold mb-2">
+                  <a href={`/projects/${project.slug}`}>{project.data.title}</a>
+                </h2>
+                <p class="mb-2">{project.data.description}</p>
+                {project.data.quickLinks && (
+                  <div class="space-x-4">
+                    {project.data.quickLinks.map((link: { title: string; link: string }) => (
+                      <a href={link.link}>{link.title}</a>
+                    ))}
+                  </div>
+                )}
               </div>
-            )}
+            ))}
           </div>
         </div>
       ))}

@@ -3,7 +3,6 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 
 const projects = await getCollection("projects");
-projects.sort((a, b) => a.data.index - b.data.index);
 const recentProjects = projects.filter((project) => project.slug === "moon-lander");
 ---
 

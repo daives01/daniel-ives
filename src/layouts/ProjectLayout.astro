@@ -8,8 +8,9 @@ const { frontmatter } = Astro.props;
     <a href="/projects">← Back to projects</a>
   </nav>
   
-  <h1 class="text-4xl font-bold mb-2">{frontmatter.title} — <span class="text-gray-600 dark:text-gray-400 font-normal text-base">{frontmatter.date}</span></h1>
-  <p class="mb-4 italic">{frontmatter.description}</p>
+  <h1 class="text-4xl font-bold mb-2">{frontmatter.title}</h1>
+  <p class="mb-4">{frontmatter.date}</p>
+  <p class="mb-4">{frontmatter.description}</p>
   
   {frontmatter.quickLinks && (
     <div class="mb-6 space-x-4">
