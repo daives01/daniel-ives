@@ -1,5 +1,4 @@
 ---
-import { getCollection } from "astro:content";
 import daniel2 from "@/assets/daniel-2.jpg";
 
 interface Props {
@@ -9,16 +8,6 @@ interface Props {
 
 const { title = "Daniel Ives", description = "Software Engineer" } =
 	Astro.props;
-
-// Get all projects for prefetching project detail pages
-const projects = await getCollection("projects");
-const projectPages = projects
-	.filter((project) => project.data.hasArticle !== false)
-	.map((project) => `/projects/${project.slug}`);
-
-// Main navigation pages to prefetch
-const mainPages = ["/about", "/projects", "/tools", "/blog"];
-
 ---
 <meta charset="UTF-8" />
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
@@ -48,10 +37,5 @@ const mainPages = ["/about", "/projects", "/tools", "/blog"];
     }
   }
 </style>
-{mainPages.map((page) => (
-	<link rel="prefetch" href={page} />
-))}
-{projectPages.map((page) => (
-	<link rel="prefetch" href={page} />
-))}
+<!-- Prefetch about page image (Astro's prefetch handles pages automatically) -->
 <link rel="prefetch" href={daniel2.src} as="image" />

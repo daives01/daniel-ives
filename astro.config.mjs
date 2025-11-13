@@ -8,6 +8,9 @@ export default defineConfig({
     '/tesla/quincy': 'https://ts.la/quincy11390',
     '/tesla': 'https://ts.la/quincy11390'
   },
+  prefetch: {
+    prefetchAll: true, // Prefetch all links automatically for instant navigation
+  },
   integrations: [
     tailwind({
       applyBaseStyles: false,
