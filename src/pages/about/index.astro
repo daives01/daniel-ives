@@ -1,38 +1,54 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import daniel2 from "@/assets/daniel-2.jpg";
 ---
+
+<style>
+  .about-image {
+    object-position: top;
+  }
+  
+  @media (min-width: 768px) {
+    .about-image {
+      object-position: top 20%;
+    }
+  }
+</style>
 
 <BaseLayout>
   <nav class="hidden md:block mb-8 pb-4 border-b border-gray-200 dark:border-gray-700">
     <a href="/">← Back to home</a>
   </nav>
   
-  <div class="flex flex-col md:flex-row gap-8 mb-8">
-    <div>
-      <h1 class="text-4xl font-bold mb-6">About</h1>
-      
-      <p class="mb-4">
-        I started as an intern at Backbone PLM while finishing my CS degree at CSU. After graduating, I joined Bamboo Rose (Backbone's parent company) 
-        as a full stack engineer, where I'm building the next generation of our PLM system.
-      </p>
-      
-      <p class="mb-4">
-        Outside of work, I play drums for Avalanche and Nuggets games, teach percussion at a local high school, and give private lessons. I also 
-        enjoy rock climbing, golf, skiing, and hiking around Colorado.
-      </p>
-      
-      <p class="mb-6">
-        I'm driven by clear communication, rapid iteration, and delivering results. I love finding the right balance between velocity and 
-        maintainability.
-      </p>
-    </div>
+  <div>
+    <h1 class="text-4xl font-bold mb-6">About</h1>
     
-    <img 
-      src="/daniel.jpg" 
-      alt="Daniel Ives" 
-      loading="lazy"
-      class="w-48 md:w-64 aspect-[2/3] rounded-lg object-cover object-top flex-shrink-0"
-      style="object-position: top 20%;"
-    />
+    <div class="flex flex-col md:flex-row gap-8 mb-8">
+      <div>
+        <p class="mb-4">
+          I started as an intern at Backbone PLM while finishing my CS degree at CSU. After graduating, I joined Bamboo Rose (Backbone's parent company) 
+          as a full stack engineer, where I'm building the next generation of our PLM system.
+        </p>
+        
+        <p class="mb-4">
+          Outside of work, I play drums for Avalanche and Nuggets games, teach percussion at a local high school, and give private lessons. I also 
+          enjoy rock climbing, golf, skiing, and hiking around Colorado.
+        </p>
+        
+        <p class="mb-6">
+          I'm driven by clear communication, rapid iteration, and delivering results. I love finding the right balance between velocity and 
+          maintainability.
+        </p>
+      </div>
+      
+      <div class="w-full max-w-48 mx-auto md:w-64 md:mx-0 flex-shrink-0">
+        <img 
+          src={daniel2.src} 
+          alt="Daniel Ives" 
+          loading="lazy"
+          class="about-image w-full aspect-[2/3] rounded-lg object-cover"
+        />
+      </div>
+    </div>
   </div>
 </BaseLayout>
