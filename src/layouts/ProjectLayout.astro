@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import { fade } from "astro:transitions";
 const { frontmatter } = Astro.props;
 ---
 
@@ -8,7 +9,7 @@ const { frontmatter } = Astro.props;
     <a href="/projects" data-astro-prefetch>← Back to projects</a>
   </nav>
   
-  <h1 class="text-4xl font-bold mb-2">{frontmatter.title}</h1>
+  <h1 class="text-4xl font-bold mb-2" transition:name="page-title" transition:animate={fade({ duration: 100 })}>{frontmatter.title}</h1>
   <p class="mb-4">{frontmatter.date}</p>
   <p class="mb-4">{frontmatter.description}</p>
   

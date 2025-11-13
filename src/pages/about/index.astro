@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import daniel2 from "@/assets/daniel-2.jpg";
+import { fade } from "astro:transitions";
 ---
 
 <style>
@@ -21,7 +22,7 @@ import daniel2 from "@/assets/daniel-2.jpg";
   </nav>
   
   <div>
-    <h1 class="text-4xl font-bold mb-6">About</h1>
+    <h1 class="text-4xl font-bold mb-6" transition:name="page-title" transition:animate={fade({ duration: 100 })}>About</h1>
     
     <div class="flex flex-col md:flex-row gap-8 mb-8">
       <div>

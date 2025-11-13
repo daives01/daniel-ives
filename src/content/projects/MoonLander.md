@@ -1,12 +1,12 @@
 ---
 index: 0
 slug: moon-lander
-title: Moon Lander
+title: Moonlander
 date: Fall 2025
 description: A 3D lunar landing simulator where you program autonomous rocket guidance in JavaScript
 quickLinks:
 - title: Play Online
-  link: https://moon-lander.daniel-ives.com
+  link: https://moonlander.rocks
 ---
 
 Moon Lander is a 3D lunar landing sim where your JavaScript flies the rocket. Read from the vehicle's "sensors" and land with 6-DOF physics.

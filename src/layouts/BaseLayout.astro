@@ -1,6 +1,7 @@
 ---
 import "@/styles/globals.css";
 import MainHead from "../components/MainHead.astro";
+import { ClientRouter, fade } from "astro:transitions";
 
 interface Props {
 	title?: string | undefined;
@@ -13,8 +14,9 @@ const { title, description } = Astro.props;
 <html lang="en">
 	<head>
 		<MainHead title={title} description={description} />
+		<ClientRouter />
 	</head>
-	<body>
+	<body transition:animate={fade({ duration: 100 })}>
 		<main class="max-w-2xl mx-auto px-6 pt-6 md:pt-24 pb-12">
 			<slot />
 		</main>

@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { fade } from "astro:transitions";
 
 const projects = await getCollection("projects");
 
@@ -23,7 +24,7 @@ const years = Object.keys(projectsByYear).sort((a, b) => parseInt(b) - parseInt(
     <a href="/" data-astro-prefetch>← Back to home</a>
   </nav>
   
-  <h1 class="text-4xl font-bold mb-6">Projects</h1>
+  <h1 class="text-4xl font-bold mb-6" transition:name="page-title" transition:animate={fade({ duration: 100 })}>Projects</h1>
   
   <div class="relative mb-6">
     <div class="absolute -left-8 top-0 bottom-0 w-px bg-gray-300 dark:bg-gray-700 hidden md:block"></div>
