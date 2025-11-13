@@ -1,5 +1,18 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const software = [
+  { name: "Excalidraw", url: "https://excalidraw.com" },
+  { name: "Neovim", url: "https://neovim.io" },
+  { name: "Placeholder", url: "#" },
+  { name: "Placeholder", url: "#" },
+];
+
+const hardware = [
+  { name: "Split Keyboards", url: "https://typeractive.com" },
+  { name: "Placeholder", url: "#" },
+  { name: "Placeholder", url: "#" },
+];
 ---
 
 <BaseLayout>
@@ -7,8 +20,43 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
     <a href="/">← Back to home</a>
   </nav>
   
-  <h1 class="text-4xl font-bold mb-6">Tools I Like</h1>
+  <h1 class="text-4xl font-bold mb-6 text-center">Tools I Like</h1>
   
-  <p>Coming soon.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
+    <div class="w-full">
+      <h2 class="font-bold text-xl mb-4 text-center">Software</h2>
+      <ul class="space-y-2 text-center">
+        {software.map((tool) => (
+          <li>
+            <a 
+              href={tool.url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="hover:underline"
+            >
+              {tool.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+    
+    <div class="w-full">
+      <h2 class="font-bold text-xl mb-4 text-center">Hardware</h2>
+      <ul class="space-y-2 text-center">
+        {hardware.map((tool) => (
+          <li>
+            <a 
+              href={tool.url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="hover:underline"
+            >
+              {tool.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
 </BaseLayout>
-
