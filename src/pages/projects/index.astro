@@ -1,22 +1,65 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import ProjectCard from "@/components/ProjectCard.astro";
 
 const projects = await getCollection("projects");
-projects.sort((a, b) => a.data.index - b.data.index);
+
+// Group projects by year
+const projectsByYear = projects.reduce((acc, project) => {
+  const year = project.data.date.split(' ')[1]; // Extract year from "Season Year"
+  if (!acc[year]) {
+    acc[year] = [];
+  }
+  acc[year].push(project);
+  return acc;
+}, {} as Record<string, Array<typeof projects[number]>>);
+
+// Sort years descending (newest first)
+const years = Object.keys(projectsByYear).sort((a, b) => parseInt(b) - parseInt(a));
 ---
 
 <BaseLayout>
-  <div class="flex flex-col justify-start items-center h-full w-full gap-4">
-    <h1 transition:name="my-projects" class="text-4xl font-bold text-transparent">
-      <span
-        class="bg-gradient-to-t from-accent-foreground2 to-primary-foreground dark:from-accent-foreground dark:to-accent-foreground2 bg-clip-text fade-3"
-        >My Projects</span
-      >
-    </h1>
-    <div transition:animate="slide" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {projects.map((project) => <ProjectCard data={project.data} url={`/projects/${project.slug}`} />)}
+  <nav slot="nav" class="hidden md:block absolute top-0 md:top-8 left-6 right-6 pb-2 border-b border-gray-200 dark:border-gray-700">
+    <a href="/" data-astro-prefetch>← Back to home</a>
+  </nav>
+  
+  <h1 class="text-4xl font-bold mb-6">Projects</h1>
+  
+  <div class="relative mb-6">
+    <div class="absolute -left-8 top-2 bottom-0 w-px bg-gray-300 dark:bg-gray-700 hidden md:block"></div>
+    
+    <div class="space-y-12">
+      {years.map((year) => (
+        <div class="relative">
+          <div class="absolute -left-40 w-28 flex-shrink-0 hidden md:block">
+            <div class="text-gray-600 dark:text-gray-400 whitespace-nowrap text-right font-bold">{year}</div>
+          </div>
+          
+          <div class="absolute -left-8 top-2 w-2 h-2 -translate-x-1/2 rounded-full bg-gray-300 dark:bg-gray-700 hidden md:block"></div>
+          
+          <div class="flex-1 space-y-6">
+            {projectsByYear[year].map((project) => (
+              <div>
+                <h2 class="font-bold mb-2">
+                  {project.data.hasArticle === false ? (
+                    project.data.title
+                  ) : (
+                    <a href={`/projects/${project.slug}`} data-astro-prefetch>{project.data.title}</a>
+                  )}
+                </h2>
+                <p class="mb-2">{project.data.description}</p>
+                {project.data.quickLinks && (
+                  <div class="space-x-4">
+                    {project.data.quickLinks.map((link: { title: string; link: string }) => (
+                      <a href={link.link}>{link.title}</a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   </div>
 </BaseLayout>

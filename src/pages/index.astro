@@ -1,8 +1,41 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Hero from "@/components/Hero.astro"
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
 ---
 
 <BaseLayout>
-    <Hero />
+  <h1 class="text-4xl font-bold mb-6">Daniel Ives</h1>
+  
+  <p class="mb-6">
+    I'm a software engineer and musician. I work at <a href="https://bamboorose.com">Bamboo Rose</a> building full stack applications. 
+    I like space.
+  </p>
+  
+    <>
+      <p class="mb-4">
+        I occasionally build <a href="/projects" data-astro-prefetch>projects</a> in my free time. Here are some of my favorites:
+      </p>
+      
+      <div class="mb-6">
+        <ul class="list-disc list-inside">
+          <li class="mb-2">
+            <a href="https://moonlander.rocks" target="_blank" rel="noopener noreferrer">Moon Lander</a>
+          </li>
+          <li class="mb-2">
+            more coming soon...
+          </li>
+        </ul>
+      </div>
+    </>
+  
+  <p class="mb-6">
+    You can read more <a href="/about" data-astro-prefetch>about me</a>, check out <a href="/tools" data-astro-prefetch>tools I like</a>, 
+    <a href="https://x.com/couponnephew">find me online</a>, or even... <a href="https://linkedin.com/in/daniel-benjamin-ives">LinkedIn</a>.
+  </p>
+  
+  <p>
+    Feel free to <a href="mailto:contact@daniel-ives.com">reach out</a>.
+  </p>
 </BaseLayout>
