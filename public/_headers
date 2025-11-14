@@ -1,0 +1,13 @@
+# Cache headers for prefetching support in Firefox and Safari
+# See: https://docs.astro.build/en/guides/prefetch/#firefox
+# 
+# Firefox requires explicit cache headers (Cache-Control or Expires) or ETag
+# Safari requires Cache-Control, Expires, and ETag (ETag set automatically by Cloudflare)
+#
+# max-age=0 with must-revalidate allows browsers to cache but validate with ETag
+# This enables prefetching while ensuring fresh content
+
+# Apply to all HTML pages (Astro generates clean URLs without .html extension)
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+
