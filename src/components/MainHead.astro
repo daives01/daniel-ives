@@ -20,8 +20,15 @@ interface Props {
 const { title = "Daniel Ives", description = "Software Engineer" } =
 	Astro.props;
 
-// Construct inline CSS with font family
+// Construct inline CSS with font family and critical styles
 const inlineCss = `
+  html {
+    scrollbar-gutter: stable;
+    visibility: hidden;
+  }
+  html.css-loaded {
+    visibility: visible;
+  }
   body {
     background-color: #f9fafb;
     color: #000000;
@@ -35,6 +42,12 @@ const inlineCss = `
       color: #ffffff;
     }
   }
+  a {
+    text-decoration: underline;
+  }
+  a:hover {
+    text-decoration: none;
+  }
 `;
 ---
 <meta charset="UTF-8" />
@@ -45,6 +58,20 @@ const inlineCss = `
 <title>{title}</title>
 <!-- Critical inline CSS - ensures styles apply immediately during navigation -->
 <style is:global set:html={inlineCss}></style>
+<!-- Prevent FOUC by showing content only after styles load -->
+<script is:inline>
+  (function() {
+    // Show content once DOM is ready and styles are loaded
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() {
+        document.documentElement.classList.add('css-loaded');
+      });
+    } else {
+      // DOM already loaded
+      document.documentElement.classList.add('css-loaded');
+    }
+  })();
+</script>
 <!-- Preconnect to Google Fonts for faster font loading -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
