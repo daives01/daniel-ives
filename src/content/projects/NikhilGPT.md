@@ -1,5 +1,5 @@
 ---
-index: 2
+index: 3
 slug: nikhil-gpt
 title: Nikhil GPT
 date: Spring 2023

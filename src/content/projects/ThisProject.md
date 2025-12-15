@@ -1,5 +1,5 @@
 ---
-index: 1
+index: 2
 slug: this-project
 title: Personal Site
 date: Winter 2024
