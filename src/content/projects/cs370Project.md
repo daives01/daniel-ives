@@ -1,5 +1,5 @@
 ---
-index: 0
+index: 1
 slug: cs-370
 title: Hand-Gesture Media Controller
 date: Spring 2022

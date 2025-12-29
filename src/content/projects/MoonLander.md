@@ -1,5 +1,5 @@
 ---
-index: 6
+index: 5
 slug: moon-lander
 title: Moonlander
 date: Fall 2025

@@ -1,5 +1,5 @@
 ---
-index: 1
+index: 0
 slug: coffee-calculator
 title: Coffee Calculator
 date: Winter 2022

@@ -18,3 +18,5 @@ Features:
 - Auto-generate summaries and tags with Ollama
 - Multi-user support with JWT authentication
 
+
+
