@@ -14,6 +14,11 @@ const projectsByYear = projects.reduce((acc, project) => {
   return acc;
 }, {} as Record<string, Array<typeof projects[number]>>);
 
+// Sort projects within each year by index in descending order (highest index first)
+Object.keys(projectsByYear).forEach((year) => {
+  projectsByYear[year].sort((a, b) => b.data.index - a.data.index);
+});
+
 // Sort years descending (newest first)
 const years = Object.keys(projectsByYear).sort((a, b) => parseInt(b) - parseInt(a));
 ---

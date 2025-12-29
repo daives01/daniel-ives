@@ -1,5 +1,5 @@
 ---
-index: 4
+index: 2
 slug: cs-462
 title: Alone on the Moon 
 date: Fall 2022
