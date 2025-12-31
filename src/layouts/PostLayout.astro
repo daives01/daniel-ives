@@ -1,0 +1,23 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout>
+  <nav slot="nav" class="hidden md:block absolute top-0 md:top-8 left-6 right-6 pb-2 border-b border-gray-200 dark:border-gray-700">
+    <a href="/posts" data-astro-prefetch>← Back to posts</a>
+  </nav>
+  
+  <h1 class="text-4xl font-bold mb-6">{frontmatter.title}</h1>
+   <p class="mb-4 text-sm text-gray-600 dark:text-gray-400">
+     By Daniel Ives · {(() => {
+       const day = frontmatter.date.getUTCDate();
+       const ordinal = day + (day > 20 ? {1: 'st', 2: 'nd', 3: 'rd'}[day % 10] || 'th' : day === 1 ? 'st' : day === 2 ? 'nd' : day === 3 ? 'rd' : 'th');
+       return `${frontmatter.date.toLocaleString('en-US', { month: 'long' })} ${ordinal}, ${frontmatter.date.getUTCFullYear()}`;
+     })()}
+   </p>
+  
+  <article class="prose prose-slate dark:prose-invert max-w-none">
+    <slot />
+  </article>
+</BaseLayout>

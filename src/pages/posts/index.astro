@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("posts");
+const publishedPosts = posts.filter(entry => entry.data.draft !== true);
+const sortedPosts = publishedPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<BaseLayout>
+  <nav slot="nav" class="hidden md:block absolute top-0 md:top-8 left-6 right-6 pb-2 border-b border-gray-200 dark:border-gray-700">
+    <a href="/" data-astro-prefetch>← Back to home</a>
+  </nav>
+  
+  <h1 class="text-4xl font-bold mb-6">Posts</h1>
+  
+  {sortedPosts.length === 0 ? (
+    <p>Coming soon.</p>
+  ) : (
+    <div class="space-y-8">
+      {sortedPosts.map((entry) => (
+        <div>
+          <h2 class="font-bold mb-2">
+            <a href={`/posts/${entry.slug}`} data-astro-prefetch>{entry.data.title}</a>
+          </h2>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+            {(() => {
+              const date = entry.data.date;
+              const day = date.getUTCDate();
+              const ordinal = day + (day > 20 ? {1: 'st', 2: 'nd', 3: 'rd'}[day % 10] || 'th' : day === 1 ? 'st' : day === 2 ? 'nd' : day === 3 ? 'rd' : 'th');
+              return `${date.toLocaleString('en-US', { month: 'long' })} ${ordinal}, ${date.getUTCFullYear()}`;
+            })()}
+          </p>
+        </div>
+      ))}
+    </div>
+  )}
+</BaseLayout>

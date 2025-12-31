@@ -1,0 +1,171 @@
+---
+interface Props {
+  id: number;
+}
+
+const { id } = Astro.props;
+---
+<span class="note-wrapper">
+  <button
+    class="note-trigger text-gray-400 hover:text-gray-500"
+    aria-label={`Show note ${id}`}
+    data-note-id={id}
+    aria-expanded="false"
+  >
+    <sup>{id}</sup>
+  </button>
+  <span class="note-content hidden" data-note-id={id}>
+    <slot />
+  </span>
+</span>
+
+<style>
+  .note-wrapper {
+    position: relative;
+    display: inline;
+  }
+
+  .note-trigger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+    display: inline;
+  }
+
+  .note-trigger sup {
+    font-size: 0.6em;
+    vertical-align: super;
+    padding: 0;
+    line-height: 1;
+    margin-left: -2px;
+    position: relative;
+    top: -0.3em;
+    transition: color 0.2s;
+  }
+
+  .note-content {
+    position: fixed;
+    display: inline-block;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 0.8em;
+    line-height: 1.4;
+    width: 220px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+    z-index: 9999;
+  }
+
+  .note-content:not(.hidden) {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .note-content {
+      background: #262626;
+      border-color: #404040;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .note-trigger {
+      color: #9ca3af;
+    }
+
+    .note-trigger:hover {
+      color: #d4d4d4;
+    }
+  }
+</style>
+
+<script>
+  const triggers = document.querySelectorAll('.note-trigger');
+  let activeId: string | null = null;
+
+  function positionNote(id: string, trigger: Element) {
+    const content = document.querySelector(`.note-content[data-note-id="${id}"]`);
+    if (!content) return;
+
+    const rect = trigger.getBoundingClientRect();
+    const padding = 8;
+
+    let left = rect.right + padding;
+    let top = rect.top;
+
+    if (left + 220 > window.innerWidth - padding) {
+      left = rect.left - 220 - padding;
+    }
+
+    if (left < padding) {
+      left = padding;
+    }
+
+    if (top + 100 > window.innerHeight - padding) {
+      top = window.innerHeight - 100 - padding;
+    }
+
+    if (top < padding) {
+      top = padding;
+    }
+
+    (content as HTMLElement).style.left = `${left}px`;
+    (content as HTMLElement).style.top = `${top}px`;
+  }
+
+  function closeAllNotes() {
+    document.querySelectorAll('.note-content').forEach(c => {
+      c.classList.add('hidden');
+    });
+    document.querySelectorAll('.note-trigger').forEach(t => {
+      t.setAttribute('aria-expanded', 'false');
+    });
+    activeId = null;
+  }
+
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const id = trigger.getAttribute('data-note-id');
+      if (!id) return;
+
+      if (activeId === id) {
+        closeAllNotes();
+      } else {
+        positionNote(id, trigger);
+        const content = document.querySelector(`.note-content[data-note-id="${id}"]`);
+        if (content) {
+          closeAllNotes();
+          content.classList.remove('hidden');
+          trigger.setAttribute('aria-expanded', 'true');
+          activeId = id;
+        }
+      }
+    });
+  });
+
+  document.addEventListener('click', closeAllNotes);
+
+  window.addEventListener('scroll', () => {
+    if (activeId) {
+      const trigger = document.querySelector(`.note-trigger[data-note-id="${activeId}"]`);
+      if (trigger) {
+        positionNote(activeId, trigger);
+      }
+    }
+  }, true);
+
+  window.addEventListener('resize', () => {
+    if (activeId) {
+      const trigger = document.querySelector(`.note-trigger[data-note-id="${activeId}"]`);
+      if (trigger) {
+        positionNote(activeId, trigger);
+      }
+    }
+  });
+</script>

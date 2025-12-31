@@ -1,0 +1,14 @@
+---
+interface Props {
+  startYear: number;
+  startMonth: number;
+}
+
+const { startYear, startMonth } = Astro.props;
+
+const now = new Date();
+const currentYear = now.getFullYear();
+const currentMonth = now.getMonth() + 1;
+const monthsElapsed = (currentYear - startYear) * 12 + (currentMonth - startMonth);
+---
+<span class="text-link">{monthsElapsed}</span>

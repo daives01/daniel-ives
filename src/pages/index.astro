@@ -2,7 +2,11 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 
-const projects = await getCollection("projects");
+const posts = await getCollection("posts");
+const recentPosts = posts
+  .filter(entry => entry.data.draft !== true)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 1);
 ---
 
 <BaseLayout>
@@ -12,22 +16,28 @@ const projects = await getCollection("projects");
     I'm a software engineer and musician. I work at <a href="https://bamboorose.com">Bamboo Rose</a> building full stack applications. 
     I like space and computers.
   </p>
+  <div class="mb-6">
+    <p class="mb-4">
+      I occasionally build <a href="/projects" data-astro-prefetch>projects</a> in my free time. The two I'm currently most proud of are:
+    </p>
+    <ul class="list-disc list-inside mb-8 space-y-2">
+      <li>
+        <a href="https://cozytab.club" target="_blank" rel="noopener noreferrer">cozytab</a> - a multiplayer interactive room decorator. Designed with my amazing wife.
+      </li>
+      <li>
+        <a href="https://moonlander.rocks" target="_blank" rel="noopener noreferrer">Moonlander</a> - a 3d lunar landing simulator.
+      </li>
+    </ul>
+  </div>
+  {recentPosts.length > 0 && (
     <div class="mb-6">
       <p class="mb-4">
-        I occasionally build <a href="/projects" data-astro-prefetch>projects</a> in my free time. The two I'm currently most proud of are:
+I'm trying to <a href="/posts" data-astro-prefetch>write</a> more about things I find interesting. Maybe you'll find it interesting too. My most recent post is <a href={`/posts/${recentPosts[0].slug}`} data-astro-prefetch>{recentPosts[0].data.title}</a>.
       </p>
-      <ul class="list-disc list-inside mb-8 space-y-2">
-        <li>
-          <a href="https://cozytab.club" target="_blank" rel="noopener noreferrer">cozytab</a> - a multiplayer interactive room decorator. Designed with my amazing wife.
-        </li>
-        <li>
-          <a href="https://moonlander.rocks" target="_blank" rel="noopener noreferrer">Moonlander</a> -  a 3d lunar landing simulator.
-        </li>
-      </ul>
     </div>
+  )}
   <p class="mb-6">
-    You can read more <a href="/about" data-astro-prefetch>about me</a>, check out <a href="/tools" data-astro-prefetch>tools I like</a>, 
-    <a href="https://x.com/couponnephew">find me online</a>, or even... <a href="https://linkedin.com/in/daniel-benjamin-ives">LinkedIn</a>.
+    You can read more <a href="/about" data-astro-prefetch>about me</a> and <a href="/tools" data-astro-prefetch>tools I like</a>.
   </p>
   
   <p>
