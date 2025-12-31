@@ -1,0 +1,18 @@
+---
+interface Props {
+  darkSrc: string;
+  lightSrc: string;
+  alt: string;
+  caption?: string;
+}
+
+const { darkSrc, lightSrc, alt, caption } = Astro.props;
+---
+
+<figure>
+  <picture>
+    <source srcset={lightSrc} media="(prefers-color-scheme: light)" />
+    <img src={darkSrc} alt={alt} class="inline-block" />
+  </picture>
+  {caption && <figcaption class="text-sm text-gray-600 dark:text-gray-400 mt-2 text-center">{caption}</figcaption>}
+</figure>
