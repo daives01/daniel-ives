@@ -1,6 +1,6 @@
 ---
-import daniel2 from "@/assets/daniel-2.jpg";
-const ogImage = new URL(daniel2.src, Astro.site).toString();
+import ogImageAsset from "@/assets/og-image.jpg";
+const ogImage = new URL(ogImageAsset.src, Astro.site).toString();
 
 // Font configuration - change this to try different fonts
 // FONT_FAMILY: The actual font name (with spaces) for CSS
@@ -120,5 +120,5 @@ const inlineCss = `
 <!-- font-display: block waits for font to load (up to 3s) before showing text, preventing layout shift -->
 <!-- This ensures Nunito is used from the start, avoiding any content movement when font loads -->
 <link href={`https://fonts.googleapis.com/css2?family=${FONT_FAMILY_URL}:wght@${FONT_WEIGHTS}&display=block`} rel="stylesheet" />
-<!-- Prefetch about page image (Astro's prefetch handles pages automatically) -->
-<link rel="prefetch" href={daniel2.src} as="image" />
+ <!-- Prefetch about page image (Astro's prefetch handles pages automatically) -->
+<link rel="prefetch" href={ogImageAsset.src} as="image" />

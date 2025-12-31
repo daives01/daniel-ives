@@ -7,7 +7,7 @@ const publishedPosts = posts.filter(entry => entry.data.draft !== true);
 const sortedPosts = publishedPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 
-<BaseLayout title="Posts | Daniel Ives" description="Thoughts, ideas, and technical writing from Daniel Ives">
+<BaseLayout title="Daniel Ives | Posts" description="Thoughts, ideas, and technical writing from Daniel Ives">
   <nav slot="nav" class="hidden md:block absolute top-0 md:top-8 left-6 right-6 pb-2 border-b border-gray-200 dark:border-gray-700">
     <a href="/" data-astro-prefetch>← Back to home</a>
   </nav>
