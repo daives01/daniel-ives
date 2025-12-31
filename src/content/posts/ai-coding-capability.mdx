@@ -6,6 +6,7 @@ draft: false
 import MonthsCounter from "@/components/MonthsCounter.astro";
 import Link from "@/components/Link.astro";
 import Note from "@/components/Note.astro";
+import ThemeImage from "@/components/ThemeImage.astro";
 
 I've been messing around with AI models for the past three years. Like everyone else, I was amazed by the original GitHub Copilot release, but what interested me a lot more was running small models like Mistral-7b on my local machine.
 
@@ -13,10 +14,10 @@ Combined with some of those early "agent" frameworks like LangChain, I played ar
 
 Looking back, my mental model about AI capabilities used to be that any LLM, even a small one, provided some quantifiable units of "intelligence". And with enough tools, time, delegation with sub-agents, even a model running locally can add enough intelligence units to work towards any arbitrarily complex goal. We just need to find the right harness<Note id={1}>A "harness" is the system prompt, collection of tools, context, etc that helps AI systems work effectively. Different models work best when they have purpose-built harnesses</Note>. This honestly made me a bit nervous about my future career.
 
-Fast forward to today, I've learned a ton about software engineering all while being <Link href="https://x.com/ThePrimeagen/status/1979560691297382773"><MonthsCounter startYear={2023} startMonth={6} /> months into 6 months from AI taking my job</Link>, and I realize my previous mental model was not the correct way of thinking. It's now shifted to something more like this (forgive the Apple level-of-detail):
+Fast forward to today, I've learned a ton about software engineering all while being <Link href="https://x.com/ThePrimeagen/status/1979560691297382773"><MonthsCounter startYear={2023} startMonth={6} /> months into 6 months from AI taking my job</Link>, and I realize my previous mental model was not the correct way of thinking. It's now shifted to something more like this (forgive the Apple-style level-of-detail):
 
-![AI Coding Asymptotes at a certain complexity](/images/posts/ai-capability.png)
-Even with the theoretical best possible harness, frontier AI models still reach this asymptotic limit of complexity they can handle, no matter how much time or money is spent on it. We can consider things like simple todo list apps "solved" as their complexity is well below the asymptote of the frontier. But we are still far from AI agents being capable of making real production apps on their own.
+<ThemeImage darkSrc="/images/posts/ai-capability.png" lightSrc="/images/posts/ai-capability-light.png" alt="AI Coding Asymptotes at a certain complexity"/>
+To be clear, I'm talking about any non-technical English speaker's ability to produce software using AI, not a Software Engineer using Cursor. Even with the theoretical best possible harness, frontier AI models still reach this asymptotic limit of complexity they can handle, no matter how much time or money is spent on it. We can consider things like simple todo list apps "solved" as their complexity is well below the asymptote of the frontier. But we are still far from AI agents being capable of making real production apps on their own.
 
 Even if a new model raises this limit, you still *by nature* need a human software engineer in the loop to build anything of real economic value. If the value of apps under the curve eventually comes down to token cost, the *only* way to create excess economic value under the curve would be with human differentiation. This means the smarter models get, the *more* important it is to have human differentiation in your app.
 
