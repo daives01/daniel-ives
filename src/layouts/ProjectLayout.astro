@@ -1,17 +1,39 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const siteURL = new URL('https://daniel-ives.com');
+
+const pageTitle = `${frontmatter.title} | Daniel Ives`;
+const pageDescription = frontmatter.description;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": frontmatter.title,
+  "description": pageDescription,
+  "author": {
+    "@type": "Person",
+    "name": "Daniel Ives",
+    "url": siteURL.toString()
+  },
+  "url": canonicalURL.toString()
+};
 ---
 
-<BaseLayout>
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <slot name="head">
+    <meta property="og:type" content="website" />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+  </slot>
   <nav slot="nav" class="hidden md:block absolute top-0 md:top-8 left-6 right-6 pb-2 border-b border-gray-200 dark:border-gray-700">
     <a href="/projects" data-astro-prefetch>← Back to projects</a>
   </nav>
-  
+
   <h1 class="text-4xl font-bold mb-6">{frontmatter.title}</h1>
   <p class="mb-4">{frontmatter.date}</p>
   <p class="mb-6">{frontmatter.description}</p>
-  
+
   {frontmatter.quickLinks && (
     <div class="mb-6 space-x-4">
       {frontmatter.quickLinks.map((link: { title: string; link: string }) => (
@@ -19,7 +41,7 @@ const { frontmatter } = Astro.props;
       ))}
     </div>
   )}
-  
+
   <article class="prose prose-slate dark:prose-invert max-w-none">
     <slot />
   </article>

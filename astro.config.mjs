@@ -1,11 +1,13 @@
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://daniel-ives.com',
   output: 'static',
-  integrations: [mdx()],
+  integrations: [mdx(), sitemap()],
   redirects: {
     '/tesla/daniel': 'https://ts.la/daniel395842',
     '/tesla/quincy': 'https://ts.la/quincy11390',

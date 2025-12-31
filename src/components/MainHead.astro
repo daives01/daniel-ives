@@ -1,5 +1,6 @@
 ---
 import daniel2 from "@/assets/daniel-2.jpg";
+const ogImage = new URL(daniel2.src, Astro.site).toString();
 
 // Font configuration - change this to try different fonts
 // FONT_FAMILY: The actual font name (with spaces) for CSS
@@ -19,6 +20,27 @@ interface Props {
 
 const { title = "Daniel Ives", description = "Software Engineer" } =
 	Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const siteURL = new URL('https://daniel-ives.com');
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Daniel Ives",
+  "url": siteURL.toString(),
+  "description": description,
+  "email": "contact@daniel-ives.com",
+  "jobTitle": "Software Engineer",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Bamboo Rose"
+  },
+  "sameAs": [
+    "https://github.com/daives01"
+  ]
+};
 
 // Construct inline CSS with font family and critical styles
 const inlineCss = `
@@ -55,7 +77,26 @@ const inlineCss = `
 <meta name="description" property="og:description" content={description} />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="generator" content={Astro.generator} />
+
+<link rel="canonical" href={canonicalURL} />
+
 <title>{title}</title>
+
+<meta name="description" content={description} />
+
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:site_name" content="Daniel Ives" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
 <!-- Critical inline CSS - ensures styles apply immediately during navigation -->
 <style is:global set:html={inlineCss}></style>
 <!-- Prevent FOUC by showing content only after styles load -->
