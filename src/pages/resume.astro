@@ -1,0 +1,16 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+// Import markdown file as component
+const { Content } = await import("../resume.md");
+---
+
+<BaseLayout title="Daniel Ives | Resume">
+  <nav slot="nav" class="hidden md:block absolute top-0 md:top-8 left-6 right-6 pb-2 border-b border-gray-200 dark:border-gray-700">
+    <a href="/" data-astro-prefetch>← Back to home</a>
+  </nav>
+
+  <article class="prose prose-sm prose-slate dark:prose-invert dark:prose-headings:text-white dark:prose-p:text-white dark:prose-a:text-white max-w-none">
+    <Content />
+  </article>
+</BaseLayout>
