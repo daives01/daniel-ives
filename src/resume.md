@@ -3,13 +3,13 @@
 Highlands Ranch, Colorado | 720-243-3328 | [danielives01@gmail.com](mailto:danielives01@gmail.com) | [LinkedIn](https://www.linkedin.com/in/daniel-benjamin-ives/) | [GitHub](https://github.com/daives01) | [Website](https://daniel-ives.com)
 
 * I’m a software engineer at Bamboo Rose (acquired Backbone PLM), modernizing an Enterprise PLM application.  
-* I find a lot of joy in building things that positively impact the people who use it.  
+* I take great pride in building things that positively impact the people who use it.  
 * I moonlight as a sports drummer and a music educator.
 
 ## **Professional Experience**
 
 **Bamboo Rose** \- Remote, Colorado  
-*Software Engineer* | 2023 \- Present
+*Senior Software Engineer* | 2023 \- Present (Promoted 2026) 
 
 * Architected and built greenfield multi-tenant reporting service (Spring Boot \+ Next.js) from ground up, including custom auth solution bridging multi-tenant to single-tenant legacy system  
 * Drove AI tool adoption across the engineering team, created internal resources and tool recommendations that boosted velocity by 10-50% without sacrificing quality.  
