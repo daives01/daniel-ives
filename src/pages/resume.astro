@@ -7,7 +7,16 @@ const { Content } = await import("../resume.md");
 
 <BaseLayout title="Daniel Ives | Resume">
   <nav slot="nav" class="hidden md:block absolute top-0 md:top-8 left-6 right-6 pb-2 border-b border-gray-200 dark:border-gray-700">
-    <a href="/" data-astro-prefetch>← Back to home</a>
+    <div class="flex justify-between items-center">
+      <a href="/" data-astro-prefetch>← Back to home</a>
+      <a
+        href="/Daniel Ives Resume.pdf"
+        download="Daniel Ives Resume.pdf"
+        class="text-sm px-3 py-1 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors no-underline"
+      >
+        Download PDF
+      </a>
+    </div>
   </nav>
 
   <article class="prose prose-sm prose-slate dark:prose-invert dark:prose-headings:text-white dark:prose-p:text-white dark:prose-a:text-white max-w-none">
