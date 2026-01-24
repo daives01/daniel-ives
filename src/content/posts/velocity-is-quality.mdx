@@ -1,0 +1,22 @@
+---
+title: "Shipping Velocity :: Software Quality"
+date: 2026-01-21
+draft: false
+description: "Why I think your shipping cadence directly correlates to your software quality."
+---
+import ThemeImage from "@/components/ThemeImage.astro";
+
+I’ve worked on both ends of the spectrum: From a startup that “releases” 5-8 fixes a day through a CI/CD pipeline, to a single tenant enterprise application that made monthly, manually distributed releases. I can say without a doubt that the former is superior in every way. 
+
+Shipping velocity is everything. It’s not just the cadence at which customers get new features, it’s the smallest unit of time for the whole company. When you ship once a month, it doesn’t really matter that your CI takes 30 minutes, that packaging a release is extremely manual, that you don’t have good automated tests. Because you have all this extra time to ship, slow becomes acceptable, and everyone gets slower. 
+
+You might think fixing all those bottlenecks would have to be a prerequisite to shipping faster, but in my experience the opposite is true. As I helped my company move from monthly to biweekly releases (I’d still like to move even faster, but, baby steps), I found all of those pains become actual priorities. We never could prioritize improving these things until everyone felt the pain.
+
+Shipping faster also decreases the risk of every release:
+
+<ThemeImage darkSrc="/images/posts/shipping-velocity.png" lightSrc="/images/posts/shipping-velocity-light.png" alt="Shipping Velocity"/>
+
+As you increase your cadence, the delta between each release is smaller. The area under the curve (the amount you’re shipping) is the same for all strategies, but the risk is greatly reduced the faster you ship. Not only is the size of any potential issue likely much smaller, but your ability to fix it quickly also becomes much better. 
+
+
+So TLDR: Shipping faster makes your process better by necessity, lets you release more smaller diffs instead of fewer large ones, and in the off-chance there are issues, you can ship the fixes fast too.
