@@ -1,6 +1,6 @@
 
 ---
-index: 8
+index: 10
 slug: cozy-tab
 title: cozytab
 date: Winter 2026
