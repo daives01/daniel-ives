@@ -9,7 +9,8 @@ Highlands Ranch, Colorado | 720-243-3328 | [danielives01@gmail.com](mailto:danie
 ## **Professional Experience**
 
 **Bamboo Rose** \- Remote, Colorado  
-*Senior Software Engineer* | 2023 \- Present (Promoted 2026) 
+*Senior Software Engineer* | 2026 \- Present  
+*Software Engineer* | 2023 \- 2025
 
 * Architected and built greenfield multi-tenant reporting service (Spring Boot \+ Next.js) from ground up, including custom auth solution bridging multi-tenant to single-tenant legacy system  
 * Drove AI tool adoption across the engineering team, created internal resources and tool recommendations that boosted velocity by 10-50% without sacrificing quality.  
@@ -26,6 +27,16 @@ Highlands Ranch, Colorado | 720-243-3328 | [danielives01@gmail.com](mailto:danie
 * Collaborated in an agile environment to deliver high-quality features, fostering effective communication with engineers, management, product team, and designers*.*
 
 ## **Other Projects**
+**Legally Distinct Global Domination** \- [https://global-domination.daniel-ives.com](https://global-domination.daniel-ives.com)
+
+* Built finite state machine tracking the entire game of Risk in typescript  
+* React frontend and convex backend for playing online Risk with friends, realtime or asynchronous  
+* Email notifications with Resend, Slack webhook support, various game types (different maps, team/solo play, different game rules)
+
+**Rhythms**\- [https://rhythms.daniel-ives.com](https://rhythms.daniel-ives.com)
+
+* Gamified sight-reading rhythm and melody generator for my percussion students  
+* Vite/react frontend, Convex \+ Better auth backend, Resend emails
 
 **cozytab** \- [https://cozytab.club](https://cozytab.club)
 
@@ -65,6 +76,4 @@ Highlands Ranch, Colorado | 720-243-3328 | [danielives01@gmail.com](mailto:danie
 
 * B.S. in Computer Science  
 * CSU College of Natural Sciences Dean’s list  
-* 4.0 GPA, Graduated summa cum laude 
-
-  
+* 4.0 GPA, Graduated summa cum laude
