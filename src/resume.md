@@ -9,11 +9,12 @@ Highlands Ranch, Colorado | 720-243-3328 | [danielives01@gmail.com](mailto:danie
 ## **Professional Experience**
 
 **Bamboo Rose** \- Remote, Colorado  
-*Senior Software Engineer* | 2026 \- Present  
+*Sr Software Engineer* | 2026 \- Present  
 *Software Engineer* | 2023 \- 2025
 
 * Architected and built greenfield multi-tenant reporting service (Spring Boot \+ Next.js) from ground up, including custom auth solution bridging multi-tenant to single-tenant legacy system  
-* Drove AI tool adoption across the engineering team, created internal resources and tool recommendations that boosted velocity by 10-50% without sacrificing quality.  
+* Built internal AI agent using Opencode SDK with connection into company Slack and Bitbucket for bug triage, quick fixes, and code review.
+* Drove AI tool adoption across the engineering team, created internal resources and tool recommendations that boosted velocity without sacrificing quality.  
 * Mentored 2 frontend engineers to become full-stack contributors, teaching Java fundamentals and empowering them to independently build features in the new API suite within 2 weeks.  
 * Streamlined git branching strategy and increased from monthly to bi-weekly release cadence of enterprise single-tenant application.  
 * Led modernization by injecting React micro-frontends into legacy app and architecting modern OpenAPI REST layer with clean repository abstraction, enabling incremental feature development while isolating legacy dependencies
