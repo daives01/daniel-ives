@@ -12,7 +12,7 @@ quickLinks:
 
 This is the first time building a project that is explicitly *not* for me. It's very refreshing to get product insights from your customer, in this case, my wife.
 
-Cozytab is a virtual isometric sticker pack, you can buy new items from the shop and decorate your "room" with them. It also allows you to invite others into your room to share it with them. You can see each others' cursors and type to them in real time (heavily inspired by FigJam)
+Cozytab is a virtual isometric sticker pack, you can buy new items from the shop and decorate your "room" with them. It also allows you to invite others into your room to share it with them. You can see each other's cursors and type to them in real time (heavily inspired by FigJam)
 
 All of the artwork is done by my wife, and I've given her an admin dashboard so she can upload new ones, price them, etc. All without me.
 

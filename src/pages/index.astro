@@ -11,14 +11,14 @@ const recentPosts = posts
 
 <BaseLayout
     title="Daniel Ives | Software Engineer"
-    description="Daniel Ives is a software engineer and musician building full stack applications at Bamboo Rose. Personal projects include cozytab.club and moonlander.rocks."
+    description="Daniel Ives is a senior software engineer at Lob and musician in Colorado. Personal projects include cozytab.club and KSP Bench."
 >
     <h1 class="text-4xl font-bold mb-6">Daniel Ives</h1>
 
     <p class="mb-6">
-        I'm a software engineer and musician. I work at <a
-            href="https://bamboorose.com">Bamboo Rose</a
-        > building full stack applications. I like computers.
+        I'm a software engineer at <a
+            href="https://www.lob.com">Lob</a
+        >, as well as a musician and music educator.
     </p>
     <div class="mb-6">
         <p class="mb-4">
@@ -44,10 +44,10 @@ const recentPosts = posts
             </li>
             <li>
                 <a
-                    href="https://moonlander.rocks"
+                    href="https://kspbench.daniel-ives.com"
                     target="_blank"
-                    rel="noopener noreferrer">Moonlander</a
-                > - a 3d lunar landing simulator.
+                    rel="noopener noreferrer">KSP Bench</a
+                > - can an AI fly a rocket into orbit in Kerbal Space Program?
             </li>
         </ul>
     </div>
@@ -56,18 +56,13 @@ const recentPosts = posts
             <div class="mb-6">
                 <p class="mb-4">
                     I'm trying to{" "}
-                    <a href="/posts" data-astro-prefetch>
-                        write
-                    </a>{" "}
+                    <a href="/posts" data-astro-prefetch>write</a>{" "}
                     more about things I find interesting. Maybe you'll find it
                     interesting too. My most recent post is{" "}
                     <a
                         href={`/posts/${recentPosts[0].slug}`}
                         data-astro-prefetch
-                    >
-                        {recentPosts[0].data.title}
-                    </a>
-                    .
+                    >{recentPosts[0].data.title}</a>.
                 </p>
             </div>
         )
